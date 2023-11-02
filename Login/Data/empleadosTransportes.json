@@ -1,0 +1,138 @@
+[
+  {
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductos urbanos",
+        "Cantidad": 10,
+        "Descripcion": "Variedad urbanos"
+      },
+      "Vendedor": {
+        "ClienteAtendido": {
+          "nombre": "Laura Garc\u00EDa",
+          "dni": 45678901,
+          "telefono": "1234-5678"
+        },
+        "ConjuntoProducto": null,
+        "Nombre": "asdasdasd",
+        "Sueldo": 1231,
+        "Dni": 123,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "nombre": "Pepe Rodriguez",
+        "dni": 56789012,
+        "telefono": "1234-5678"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-02T00:09:44.4850485-03:00",
+    "Nombre": "ASDLm",
+    "Sueldo": 13413,
+    "Dni": 431413,
+    "Exp": 0
+  },
+  {
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductos deportivos",
+        "Cantidad": 20,
+        "Descripcion": "variedad de deportivos"
+      },
+      "Vendedor": {
+        "ClienteAtendido": {
+          "nombre": "Juan P\u00E9rez",
+          "dni": 12345678,
+          "telefono": "1234-5678"
+        },
+        "ConjuntoProducto": null,
+        "Nombre": "Lucas",
+        "Sueldo": 2000,
+        "Dni": 3010,
+        "Exp": 1
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "nombre": "Juan P\u00E9rez",
+        "dni": 12345678,
+        "telefono": "1234-5678"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-02T00:09:44.4861017-03:00",
+    "Nombre": "Otroxd",
+    "Sueldo": 14123,
+    "Dni": 123142,
+    "Exp": 1
+  },
+  {
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductos deportivos",
+        "Cantidad": 20,
+        "Descripcion": "variedad de deportivos"
+      },
+      "Vendedor": {
+        "ClienteAtendido": {
+          "nombre": "Juan P\u00E9rez",
+          "dni": 12345678,
+          "telefono": "1234-5678"
+        },
+        "ConjuntoProducto": {
+          "NombreProducto": "conjuntoProductos urbanos",
+          "Cantidad": 10,
+          "Descripcion": "Variedad urbanos"
+        },
+        "Nombre": "asdasd",
+        "Sueldo": 12314,
+        "Dni": 2312,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "nombre": "Mar\u00EDa L\u00F3pez",
+        "dni": 23456789,
+        "telefono": "1234-5678"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-02T00:09:44.4861158-03:00",
+    "Nombre": "Pepeponpin",
+    "Sueldo": 141341,
+    "Dni": 23123,
+    "Exp": 0
+  },
+  {
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductos deportivos",
+        "Cantidad": 20,
+        "Descripcion": "variedad de deportivos"
+      },
+      "Vendedor": {
+        "ClienteAtendido": {
+          "nombre": "Juan P\u00E9rez",
+          "dni": 12345678,
+          "telefono": "1234-5678"
+        },
+        "ConjuntoProducto": {
+          "NombreProducto": "conjuntoProductos urbanos",
+          "Cantidad": 10,
+          "Descripcion": "Variedad urbanos"
+        },
+        "Nombre": "asdasd",
+        "Sueldo": 12314,
+        "Dni": 2312,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "nombre": "Mar\u00EDa L\u00F3pez",
+        "dni": 23456789,
+        "telefono": "1234-5678"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-02T00:09:44.4861228-03:00",
+    "Nombre": "aasdasd",
+    "Sueldo": 21314,
+    "Dni": 123123,
+    "Exp": 0
+  }
+]
