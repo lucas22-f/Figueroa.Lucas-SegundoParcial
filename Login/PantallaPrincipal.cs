@@ -57,9 +57,9 @@ namespace App
             this.lblCorreo.Text = this.usuario.correo;
             this.lblPerfil.Text = this.usuario.perfil;
             this.lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            if(!File.Exists("../../../Data/clientes.json")|| !File.Exists("../../../Data/empleadosVentas.json") || !File.Exists("../../../Data/empleadosTransportes.json"))
+            if (!File.Exists("../../../Data/clientes.json") || !File.Exists("../../../Data/empleadosVentas.json") || !File.Exists("../../../Data/empleadosTransportes.json"))
             {
-                MessageBox.Show("Por favor cargue los archivos json;","Error",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Por favor cargue los archivos json;", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
             this.listaCliente = ClientesHandler.DeserializarClientes("../../../Data/clientes.json", this.lstBoxVisor);
@@ -81,7 +81,7 @@ namespace App
                     this.btnTransportistas.BackColor = Color.Gray;
                     break;
 
-                
+
 
 
                 default: break;
@@ -118,7 +118,7 @@ namespace App
             this.btnEditar.Visible = false;
             this.btnEliminar.Visible = false;
             this.lblControl.Visible = false;
-            
+
             FrmPedido frmPedido = new FrmPedido(this.listaDeConjuntosProductos, this.listaEmpleadosVentas, this.listaCliente);
             frmPedido.ShowDialog();
             Pedido pe = frmPedido.p;
@@ -212,7 +212,7 @@ namespace App
             this.lstBoxVisor.Visible = false;
             this.lblPanel.Visible = false;
             this.btnOrdenarDesc.Visible = false;
-            this.btnOrdenar.Visible= false;
+            this.btnOrdenar.Visible = false;
             this.lstBoxVisor.Items.Clear();
         }
 
@@ -340,6 +340,33 @@ namespace App
                 foreach (var i in this.listaCliente)
                 {
                     this.lstBoxVisor.Items.Add(i);
+                }
+            }
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+           
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+          
+            saveFileDialog1.Title = "Guardar archivo TXT";
+            saveFileDialog1.Filter = "Archivos JSON (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
+            saveFileDialog1.FilterIndex = 1;
+            saveFileDialog1.DefaultExt = "txt";
+            saveFileDialog1.FileName = "Reporte General";
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    VendedoresHandler.SerializarEmpleadosVentas(saveFileDialog1.FileName,this.listaEmpleadosVentas);
+                    ClientesHandler.SerializarClientes(saveFileDialog1.FileName, this.listaCliente);
+                    TransportistasHandler.SerializarEmpleadosEnvios(saveFileDialog1.FileName, this.listaEmpleadosEnvios);
+                    MessageBox.Show("Archivo correctamente guardado"," INFORME " ,MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
         }

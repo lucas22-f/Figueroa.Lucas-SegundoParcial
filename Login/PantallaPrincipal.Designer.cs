@@ -55,6 +55,7 @@
             lblFecha = new Label();
             btnOrdenar = new Button();
             btnOrdenarDesc = new Button();
+            btnReporte = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imgHome).BeginInit();
@@ -389,12 +390,23 @@
             btnOrdenarDesc.UseVisualStyleBackColor = true;
             btnOrdenarDesc.Click += btnOrdenarDesc_Click;
             // 
+            // btnReporte
+            // 
+            btnReporte.Location = new Point(1057, 539);
+            btnReporte.Name = "btnReporte";
+            btnReporte.Size = new Size(115, 66);
+            btnReporte.TabIndex = 27;
+            btnReporte.Text = "Guardar Reporte General";
+            btnReporte.UseVisualStyleBackColor = true;
+            btnReporte.Click += btnReporte_Click;
+            // 
             // PantallaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
             ClientSize = new Size(1194, 651);
+            Controls.Add(btnReporte);
             Controls.Add(btnOrdenarDesc);
             Controls.Add(btnOrdenar);
             Controls.Add(lblFecha);
@@ -465,5 +477,6 @@
         private Label lblFecha;
         private Button btnOrdenar;
         private Button btnOrdenarDesc;
+        private Button btnReporte;
     }
 }

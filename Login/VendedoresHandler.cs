@@ -44,6 +44,28 @@ namespace App
             
             
         }
+        public static void SerializarEmpleadosVentas(string ruta, List<Empleado_Ventas> listaEmpleadosVentas)
+        {
+            try
+            {
+                JsonSerializerOptions opciones = new JsonSerializerOptions();
+                opciones.WriteIndented = true;
+                string obj_json = " =============================== EMPLEADOS VENTAS =============================== ";
+                obj_json += JsonSerializer.Serialize(listaEmpleadosVentas, typeof(List<Empleado_Ventas>), opciones);
+
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(ruta))
+                {
+                    sw.WriteLine(obj_json);
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+
+        }
 
         public static List<Empleado_Ventas> DeserializarEmpleadosVentas(string ruta, ListBox lstBoxVisor)
         {

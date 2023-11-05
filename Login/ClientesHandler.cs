@@ -64,6 +64,33 @@ namespace App
           
             
         }
+        public static void SerializarClientes(string ruta , List<Cliente> listaCliente)
+        {
+
+           
+            try
+            {
+
+                JsonSerializerOptions opciones = new JsonSerializerOptions();
+                opciones.WriteIndented = true;
+
+                string obj_json = " =============================== CLIENTES =============================== ";
+                obj_json += JsonSerializer.Serialize(listaCliente, typeof(List<Cliente>), opciones) + ",";
+                
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(ruta,true))
+                {
+                    sw.WriteLine(obj_json);
+                }
+
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+
+        }
 
         public static void CargarVisorClientes(List<Cliente> listaCliente, ListBox lstBoxVisor)
         {
