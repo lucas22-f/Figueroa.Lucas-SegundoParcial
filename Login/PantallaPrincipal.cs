@@ -351,7 +351,7 @@ namespace App
 
           
             saveFileDialog1.Title = "Guardar archivo TXT";
-            saveFileDialog1.Filter = "Archivos JSON (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
+            saveFileDialog1.Filter = "Archivos TXT (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.DefaultExt = "txt";
             saveFileDialog1.FileName = "Reporte General";
