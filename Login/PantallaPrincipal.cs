@@ -59,7 +59,7 @@ namespace App
             this.lblFecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
             if (!File.Exists("../../../Data/clientes.json") || !File.Exists("../../../Data/empleadosVentas.json") || !File.Exists("../../../Data/empleadosTransportes.json"))
             {
-                MessageBox.Show("Por favor cargue los archivos json;", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor cargue los archivos json: clientes.json || empleadosVentas.json || empleadosTransportes.json;", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
             this.listaCliente = ClientesHandler.DeserializarClientes("../../../Data/clientes.json", this.lstBoxVisor);
@@ -67,6 +67,9 @@ namespace App
             this.listaEmpleadosEnvios = TransportistasHandler.DeserializarEmpleadosEnvios("../../../Data/empleadosTransportes.json", this.lstBoxVisor);
             this.btnOrdenar.Visible = false;
             this.btnOrdenarDesc.Visible = false;
+
+            AppHandler.usuariosLogRegistro("../../../Data/usuarios.log", this.usuario);
+
             switch (this.usuario.perfil)
             {
                 case "vendedor":
@@ -346,10 +349,10 @@ namespace App
 
         private void btnReporte_Click(object sender, EventArgs e)
         {
-           
+
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
 
-          
+
             saveFileDialog1.Title = "Guardar archivo TXT";
             saveFileDialog1.Filter = "Archivos TXT (*.txt)|*.txt|Todos los archivos (*.*)|*.*";
             saveFileDialog1.FilterIndex = 1;
@@ -360,15 +363,53 @@ namespace App
             {
                 try
                 {
-                    VendedoresHandler.SerializarEmpleadosVentas(saveFileDialog1.FileName,this.listaEmpleadosVentas);
+                    VendedoresHandler.SerializarEmpleadosVentas(saveFileDialog1.FileName, this.listaEmpleadosVentas);
                     ClientesHandler.SerializarClientes(saveFileDialog1.FileName, this.listaCliente);
                     TransportistasHandler.SerializarEmpleadosEnvios(saveFileDialog1.FileName, this.listaEmpleadosEnvios);
-                    MessageBox.Show("Archivo correctamente guardado"," INFORME " ,MessageBoxButtons.OK,MessageBoxIcon.Information);
-                }catch (Exception ex)
+                    MessageBox.Show("Archivo correctamente guardado", " INFORME ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
+        }
+
+        private void btnVerUsuariosLog_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.RestoreDirectory = false;
+            MessageBox.Show("Cargar el archivo usuarios_log.json desde la carpeta 'Data'");
+            
+            
+            openFileDialog.Filter = "Archivos JSON|usuarios_log.json|Todos los archivos|*.*";
+            openFileDialog.Title = "Seleccionar el archivo usuarios_log.json";
+
+            openFileDialog.InitialDirectory = "../../../Data";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    string filePath = openFileDialog.FileName;
+                    if (Path.GetFileName(filePath) == "usuarios_log.json")
+                    {
+                        UsuariosLogueadosForm usuariosForm = new UsuariosLogueadosForm();
+                        usuariosForm.CargarUsuarios(AppHandler.cargaUsuariosDeserializacion());
+                        usuariosForm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor, seleccione un archivo JSON llamado 'usuarios_log.json'.", "Error");
+                    }
+                   
+
+                }catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
+
         }
     }
 

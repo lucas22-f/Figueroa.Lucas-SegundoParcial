@@ -56,6 +56,7 @@
             btnOrdenar = new Button();
             btnOrdenarDesc = new Button();
             btnReporte = new Button();
+            btnVerUsuariosLog = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imgHome).BeginInit();
@@ -392,13 +393,31 @@
             // 
             // btnReporte
             // 
+            btnReporte.BackColor = Color.SlateGray;
+            btnReporte.FlatAppearance.BorderSize = 0;
+            btnReporte.FlatStyle = FlatStyle.Flat;
+            btnReporte.ForeColor = Color.Cornsilk;
             btnReporte.Location = new Point(1057, 539);
             btnReporte.Name = "btnReporte";
             btnReporte.Size = new Size(115, 66);
             btnReporte.TabIndex = 27;
             btnReporte.Text = "Guardar Reporte General";
-            btnReporte.UseVisualStyleBackColor = true;
+            btnReporte.UseVisualStyleBackColor = false;
             btnReporte.Click += btnReporte_Click;
+            // 
+            // btnVerUsuariosLog
+            // 
+            btnVerUsuariosLog.BackColor = Color.Tan;
+            btnVerUsuariosLog.FlatAppearance.BorderSize = 0;
+            btnVerUsuariosLog.FlatStyle = FlatStyle.Flat;
+            btnVerUsuariosLog.ForeColor = SystemColors.ControlText;
+            btnVerUsuariosLog.Location = new Point(1057, 492);
+            btnVerUsuariosLog.Name = "btnVerUsuariosLog";
+            btnVerUsuariosLog.Size = new Size(116, 41);
+            btnVerUsuariosLog.TabIndex = 28;
+            btnVerUsuariosLog.Text = "Historial usuarios log";
+            btnVerUsuariosLog.UseVisualStyleBackColor = false;
+            btnVerUsuariosLog.Click += btnVerUsuariosLog_Click;
             // 
             // PantallaPrincipal
             // 
@@ -406,6 +425,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
             ClientSize = new Size(1194, 651);
+            Controls.Add(btnVerUsuariosLog);
             Controls.Add(btnReporte);
             Controls.Add(btnOrdenarDesc);
             Controls.Add(btnOrdenar);
@@ -478,5 +498,6 @@
         private Button btnOrdenar;
         private Button btnOrdenarDesc;
         private Button btnReporte;
+        private Button btnVerUsuariosLog;
     }
 }

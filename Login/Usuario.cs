@@ -1,7 +1,12 @@
-﻿using System;
+﻿using Sistema_Tienda;
+using Sistema_Tienda.Empleado;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Login
@@ -14,7 +19,10 @@ namespace Login
         public string correo { get; set; }
         public string clave { get; set; }
         public string perfil { get; set; }
-
+        public DateTime LoggedAt
+        {
+            get; set;
+        }
 
 
 #pragma warning disable CS8618 // Un campo que no acepta valores NULL debe contener un valor distinto de NULL al salir del constructor. Considere la posibilidad de declararlo como que admite un valor NULL.
@@ -49,7 +57,26 @@ namespace Login
         }
 
 
+        public void usuariosLogRegistro(string ruta,Usuario user)
+        {
+            try 
+            {    
+                string usuarioLogg = $" user : {user.nombre}  fecha y hora: {DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")} ";
+               
+                using (System.IO.StreamWriter sw = new System.IO.StreamWriter(ruta, true))
+                {
+                    sw.WriteLine(usuarioLogg);
+                }
 
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+
+        }
+
+        
 
 
 
