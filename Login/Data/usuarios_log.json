@@ -295,5 +295,68 @@
     "clave": "12345678",
     "perfil": "administrador",
     "LoggedAt": "2023-11-05T17:14:49.5649396-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-05T17:20:52.9164611-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-05T17:31:46.3397528-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-05T17:36:47.373644-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-05T17:40:15.9730289-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-05T17:41:51.424907-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-05T17:42:21.9317275-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-05T17:43:49.5304455-03:00"
   }
 ]

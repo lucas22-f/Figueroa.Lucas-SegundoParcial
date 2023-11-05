@@ -358,6 +358,7 @@ namespace App
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.DefaultExt = "txt";
             saveFileDialog1.FileName = "Reporte General";
+           
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -379,13 +380,13 @@ namespace App
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.RestoreDirectory = false;
-            MessageBox.Show("Cargar el archivo usuarios_log.json desde la carpeta 'Data'");
+            MessageBox.Show("Cargar el archivo usuarios_log.json desde la carpeta 'Login/Data' de mi aplicacion. ");
             
             
             openFileDialog.Filter = "Archivos JSON|usuarios_log.json|Todos los archivos|*.*";
             openFileDialog.Title = "Seleccionar el archivo usuarios_log.json";
 
-            openFileDialog.InitialDirectory = "../../../Data";
+            openFileDialog.InitialDirectory = ".\\.\\.\\Data";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 try

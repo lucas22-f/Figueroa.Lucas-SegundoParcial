@@ -44,7 +44,7 @@ namespace App
             opciones.WriteIndented = true;
 
             string obj_json = JsonSerializer.Serialize(AppHandler.usuarios, typeof(List<Usuario>), opciones);
-
+            string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             using (System.IO.StreamWriter sw = new System.IO.StreamWriter("../../../Data/usuarios_log.json"))
             {
                 sw.WriteLine(obj_json);
