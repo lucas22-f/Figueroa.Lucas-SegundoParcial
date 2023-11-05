@@ -29,9 +29,10 @@ Como por ejemplo el de Transportistas y Vendedores ejemplo:
 
 ![image](https://github.com/lucas22-f/Figueroa.Lucas1ParcialPrograLabo2/assets/71677198/3c61eee3-18e4-497e-9722-b0c95a05935c)
 
+---
+![image](https://github.com/lucas22-f/Figueroa.Lucas1ParcialPrograLabo2/assets/71677198/f8bbeea8-6e61-4010-8b24-dea7f0e76ede)
 Ya podemos ver los datos de los vendedores que tenemos cargados en el sistema 😀😀
 vemos mas info haciendo doble click en un vendedor:
-![image](https://github.com/lucas22-f/Figueroa.Lucas1ParcialPrograLabo2/assets/71677198/f8bbeea8-6e61-4010-8b24-dea7f0e76ede)
 
 
 
