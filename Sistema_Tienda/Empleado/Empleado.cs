@@ -26,7 +26,7 @@ namespace Sistema_Tienda.Empleado
 
         }
         public Empleado(string nombre, double sueldo, int dni){
-            this.exp = Experiencia.Principiante;
+          
             this.nombre = nombre;
             this.sueldo = sueldo;
             this.dni = dni;

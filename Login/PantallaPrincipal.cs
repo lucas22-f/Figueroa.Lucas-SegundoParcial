@@ -62,6 +62,12 @@ namespace App
                 MessageBox.Show("Por favor cargue los archivos json: clientes.json || empleadosVentas.json || empleadosTransportes.json;", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
+            if (this.usuario.perfil == "administrador")
+            {
+                AdminHandler.SerializarAdmin("../../../Data/admin.json", AdminHandler.CargaAdmin(this.usuario));
+                this.linkLabelAdmin.Visible = true;
+
+            }
             this.listaCliente = ClientesHandler.DeserializarClientes("../../../Data/clientes.json", this.lstBoxVisor);
             this.listaEmpleadosVentas = VendedoresHandler.DeserializarEmpleadosVentas("../../../Data/empleadosVentas.json", this.lstBoxVisor);
             this.listaEmpleadosEnvios = TransportistasHandler.DeserializarEmpleadosEnvios("../../../Data/empleadosTransportes.json", this.lstBoxVisor);
@@ -399,8 +405,13 @@ namespace App
         private void btnProductos_Click(object sender, EventArgs e)
         {
             BindingList<Producto> listaBindingConjuntosP = new BindingList<Producto>(this.listaDeConjuntosProductos);
-           EditorProductos frmEditorProductos = new EditorProductos(listaBindingConjuntosP);
-           frmEditorProductos.ShowDialog();
+            EditorProductos frmEditorProductos = new EditorProductos(listaBindingConjuntosP);
+            frmEditorProductos.ShowDialog();
+        }
+
+        private void linkLabelAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            MessageBox.Show(AdminHandler.DeserializarAdmin("../../../Data/admin.json").MostrarInfoDetallada());
         }
     }
 

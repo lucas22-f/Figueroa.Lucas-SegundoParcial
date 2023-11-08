@@ -1,0 +1,273 @@
+ =============================== EMPLEADOS VENTAS =============================== [
+  {
+    "ClienteAtendido": {
+      "nombre": "Juan P\u00E9rez",
+      "dni": 12345678,
+      "telefono": "1234-5678"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "conjuntoProductos urbanos",
+      "Cantidad": 10,
+      "Descripcion": "Variedad urbanos"
+    },
+    "Nombre": "asdasd",
+    "Sueldo": 12314,
+    "Dni": 2312,
+    "Exp": 0
+  },
+  {
+    "ClienteAtendido": {
+      "nombre": "Sergio Ram\u00EDrez",
+      "dni": 89012345,
+      "telefono": "1234-5678"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "conjuntoProductos formales",
+      "Cantidad": 23,
+      "Descripcion": "Variedad formales"
+    },
+    "Nombre": "Fabian",
+    "Sueldo": 12343,
+    "Dni": 12312,
+    "Exp": 2
+  },
+  {
+    "ClienteAtendido": {
+      "nombre": "Carlos Mart\u00EDn",
+      "dni": 34567890,
+      "telefono": "1234-5678"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "conjuntoProductos deportivos",
+      "Cantidad": 20,
+      "Descripcion": "variedad de deportivos"
+    },
+    "Nombre": "Vendedor",
+    "Sueldo": 14123,
+    "Dni": 1342,
+    "Exp": 2
+  },
+  {
+    "ClienteAtendido": {
+      "nombre": "Juan P\u00E9rez",
+      "dni": 12345678,
+      "telefono": "1234-5678"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "conjuntoProductos deportivos",
+      "Cantidad": 20,
+      "Descripcion": "variedad de deportivos"
+    },
+    "Nombre": "Basda",
+    "Sueldo": 41321,
+    "Dni": 123,
+    "Exp": 0
+  },
+  {
+    "ClienteAtendido": {
+      "nombre": "Mar\u00EDa L\u00F3pez",
+      "dni": 23456789,
+      "telefono": "1234-5678"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "conjuntoProductos deportivos",
+      "Cantidad": 20,
+      "Descripcion": "variedad de deportivos"
+    },
+    "Nombre": "PEPEPONPIN",
+    "Sueldo": 1254134,
+    "Dni": 123123,
+    "Exp": 0
+  },
+  {
+    "ClienteAtendido": {
+      "nombre": "Mar\u00EDa L\u00F3pez",
+      "dni": 23456789,
+      "telefono": "1234-5678"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "conjuntoProductos deportivos",
+      "Cantidad": 20,
+      "Descripcion": "variedad de deportivos"
+    },
+    "Nombre": "pepepon",
+    "Sueldo": 1231415,
+    "Dni": 123233,
+    "Exp": 2
+  }
+]
+ =============================== CLIENTES =============================== [
+  {
+    "nombre": "Mar\u00EDa L\u00F3pez",
+    "dni": 23456789,
+    "telefono": "1234-5678"
+  },
+  {
+    "nombre": "Carlos Mart\u00EDn",
+    "dni": 34567890,
+    "telefono": "1234-5678"
+  },
+  {
+    "nombre": "Laura Garc\u00EDa",
+    "dni": 45678901,
+    "telefono": "1234-5678"
+  },
+  {
+    "nombre": "Pepe Rodriguez",
+    "dni": 56789012,
+    "telefono": "1234-5678"
+  },
+  {
+    "nombre": "Jorgue Gonzalez",
+    "dni": 111111111,
+    "telefono": "1234-2222"
+  },
+  {
+    "nombre": "Daniel Fern\u00E1ndez",
+    "dni": 78901234,
+    "telefono": "1234-5678"
+  },
+  {
+    "nombre": "Sergio Ram\u00EDrez",
+    "dni": 89012345,
+    "telefono": "1234-5678"
+  }
+],
+ =============================== TRANSPORTISTAS =============================== [
+  {
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductos urbanos",
+        "Cantidad": 10,
+        "Descripcion": "Variedad urbanos"
+      },
+      "Vendedor": {
+        "ClienteAtendido": {
+          "nombre": "Laura Garc\u00EDa",
+          "dni": 45678901,
+          "telefono": "1234-5678"
+        },
+        "ConjuntoProducto": null,
+        "Nombre": "asdasdasd",
+        "Sueldo": 1231,
+        "Dni": 123,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "nombre": "Pepe Rodriguez",
+        "dni": 56789012,
+        "telefono": "1234-5678"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-08T02:32:10.941649-03:00",
+    "Nombre": "ASDLm",
+    "Sueldo": 13413,
+    "Dni": 431413,
+    "Exp": 0
+  },
+  {
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductos deportivos",
+        "Cantidad": 20,
+        "Descripcion": "variedad de deportivos"
+      },
+      "Vendedor": {
+        "ClienteAtendido": {
+          "nombre": "Juan P\u00E9rez",
+          "dni": 12345678,
+          "telefono": "1234-5678"
+        },
+        "ConjuntoProducto": null,
+        "Nombre": "Lucas",
+        "Sueldo": 2000,
+        "Dni": 3010,
+        "Exp": 1
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "nombre": "Juan P\u00E9rez",
+        "dni": 12345678,
+        "telefono": "1234-5678"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-08T02:32:10.942487-03:00",
+    "Nombre": "Otroxd",
+    "Sueldo": 14123,
+    "Dni": 123142,
+    "Exp": 1
+  },
+  {
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductos deportivos",
+        "Cantidad": 20,
+        "Descripcion": "variedad de deportivos"
+      },
+      "Vendedor": {
+        "ClienteAtendido": {
+          "nombre": "Juan P\u00E9rez",
+          "dni": 12345678,
+          "telefono": "1234-5678"
+        },
+        "ConjuntoProducto": {
+          "NombreProducto": "conjuntoProductos urbanos",
+          "Cantidad": 10,
+          "Descripcion": "Variedad urbanos"
+        },
+        "Nombre": "asdasd",
+        "Sueldo": 12314,
+        "Dni": 2312,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "nombre": "Mar\u00EDa L\u00F3pez",
+        "dni": 23456789,
+        "telefono": "1234-5678"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-08T02:32:10.9425096-03:00",
+    "Nombre": "Pepeponpin",
+    "Sueldo": 141341,
+    "Dni": 23123,
+    "Exp": 0
+  },
+  {
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductos deportivos",
+        "Cantidad": 20,
+        "Descripcion": "variedad de deportivos"
+      },
+      "Vendedor": {
+        "ClienteAtendido": {
+          "nombre": "Juan P\u00E9rez",
+          "dni": 12345678,
+          "telefono": "1234-5678"
+        },
+        "ConjuntoProducto": {
+          "NombreProducto": "conjuntoProductos urbanos",
+          "Cantidad": 10,
+          "Descripcion": "Variedad urbanos"
+        },
+        "Nombre": "asdasd",
+        "Sueldo": 12314,
+        "Dni": 2312,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "nombre": "Mar\u00EDa L\u00F3pez",
+        "dni": 23456789,
+        "telefono": "1234-5678"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-08T02:32:10.9425183-03:00",
+    "Nombre": "aasdasd",
+    "Sueldo": 21314,
+    "Dni": 123123,
+    "Exp": 0
+  }
+]

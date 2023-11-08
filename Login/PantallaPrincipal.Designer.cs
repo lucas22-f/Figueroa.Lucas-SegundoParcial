@@ -58,6 +58,7 @@
             btnReporte = new Button();
             btnVerUsuariosLog = new Button();
             btnProductos = new Button();
+            linkLabelAdmin = new LinkLabel();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imgHome).BeginInit();
@@ -430,12 +431,25 @@
             btnProductos.UseVisualStyleBackColor = true;
             btnProductos.Click += btnProductos_Click;
             // 
+            // linkLabelAdmin
+            // 
+            linkLabelAdmin.AutoSize = true;
+            linkLabelAdmin.Location = new Point(912, 11);
+            linkLabelAdmin.Name = "linkLabelAdmin";
+            linkLabelAdmin.Size = new Size(65, 15);
+            linkLabelAdmin.TabIndex = 30;
+            linkLabelAdmin.TabStop = true;
+            linkLabelAdmin.Text = "info admin";
+            linkLabelAdmin.Visible = false;
+            linkLabelAdmin.LinkClicked += linkLabelAdmin_LinkClicked;
+            // 
             // PantallaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
             ClientSize = new Size(1194, 651);
+            Controls.Add(linkLabelAdmin);
             Controls.Add(btnVerUsuariosLog);
             Controls.Add(btnReporte);
             Controls.Add(btnOrdenarDesc);
@@ -512,5 +526,6 @@
         private Button btnReporte;
         private Button btnVerUsuariosLog;
         private Button btnProductos;
+        private LinkLabel linkLabelAdmin;
     }
 }

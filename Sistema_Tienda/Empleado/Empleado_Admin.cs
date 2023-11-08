@@ -11,7 +11,33 @@ namespace Sistema_Tienda.Empleado
         //Clase derivada de Empleado que posee las funciones de Empleado de Admin.
 
         private int numeroEmpleadosACargo;
+        public new string Nombre
+        {
+            get { return base.nombre; }
+            set { base.nombre = value; }
+        }
 
+        public new double Sueldo
+        {
+            get { return base.sueldo; }
+            set { base.sueldo = value; }
+        }
+        public new int Dni
+        {
+            get { return base.dni; }
+            set { base.dni = value; }
+        }
+        public Experiencia Exp
+        {
+            get { return base.exp; }
+            set { base.exp = value; }
+        }
+        public int NumeroEmpleadosAcargo
+        {
+            get { return this.numeroEmpleadosACargo; }
+            set { this.numeroEmpleadosACargo = value; }  
+        }
+        public Empleado_Admin() { }
 
 
         public Empleado_Admin(string nombre, double sueldo, int dni, Experiencia exp , int empleadosAcargo) : base(nombre, sueldo, dni, exp)
@@ -47,7 +73,10 @@ namespace Sistema_Tienda.Empleado
 
         public override string MostrarInfoDetallada()
         {
-            throw new NotImplementedException();
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.Append(base.ToString());
+            stringBuilder.Append($"empleados a cargo: {this.NumeroEmpleadosAcargo}");
+            return stringBuilder.ToString();
         }
     }
 }
