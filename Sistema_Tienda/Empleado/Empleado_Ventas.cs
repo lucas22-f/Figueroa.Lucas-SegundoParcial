@@ -134,10 +134,10 @@ namespace Sistema_Tienda.Empleado
         }
 
 
-        public override void RealizarTarea()
+        public override string RealizarTarea()
         {
             base.RealizarTarea();
-            Console.WriteLine(this.AgregarProductoACliente());
+            return this.AgregarProductoACliente();
         }
 
         private string AgregarProductoACliente()
@@ -150,13 +150,6 @@ namespace Sistema_Tienda.Empleado
 
             return sb.ToString();
             
-        }
-
-        public Pedido ConcretarPedido(Cliente c)
-        {
-            Pedido pedidoConcretado = new Pedido(this, this.clienteAtendido,this.conjuntoProducto);
-
-            return pedidoConcretado;
         }
 
         public override string ToString()

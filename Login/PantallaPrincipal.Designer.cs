@@ -57,6 +57,7 @@
             btnOrdenarDesc = new Button();
             btnReporte = new Button();
             btnVerUsuariosLog = new Button();
+            btnProductos = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imgHome).BeginInit();
@@ -419,6 +420,16 @@
             btnVerUsuariosLog.UseVisualStyleBackColor = false;
             btnVerUsuariosLog.Click += btnVerUsuariosLog_Click;
             // 
+            // btnProductos
+            // 
+            btnProductos.Location = new Point(1063, 194);
+            btnProductos.Name = "btnProductos";
+            btnProductos.Size = new Size(109, 35);
+            btnProductos.TabIndex = 29;
+            btnProductos.Text = "Productos";
+            btnProductos.UseVisualStyleBackColor = true;
+            btnProductos.Click += btnProductos_Click;
+            // 
             // PantallaPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -454,6 +465,7 @@
             Controls.Add(pictureBox1);
             Controls.Add(pictureBox2);
             Controls.Add(lstBoxVisor);
+            Controls.Add(btnProductos);
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.None;
             Name = "PantallaPrincipal";
@@ -499,5 +511,6 @@
         private Button btnOrdenarDesc;
         private Button btnReporte;
         private Button btnVerUsuariosLog;
+        private Button btnProductos;
     }
 }

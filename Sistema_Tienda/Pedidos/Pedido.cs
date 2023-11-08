@@ -53,11 +53,11 @@ namespace Sistema_Tienda
         {
             StringBuilder sb = new StringBuilder();
            
-            sb.AppendLine($"producto:{this.conjuntoProducto.ToString()} ");/**/
+            sb.AppendLine($"producto:{this.conjuntoProducto.ToString()} || ");/**/
 
-            sb.AppendLine($"Datos vendedor : {this.vendedor.ToString()}");
+            sb.AppendLine($"Datos vendedor : {this.vendedor.ToString()} || ");
 
-            sb.AppendLine($"Datos Cliente Comprador:  {this.c.ToString()}");
+            sb.AppendLine($"Datos Cliente Comprador:  {this.c.ToString()} || ");
 
 
             return sb.ToString();   

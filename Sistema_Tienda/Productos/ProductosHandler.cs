@@ -21,5 +21,9 @@ namespace App
 
             return listaConjuntoProductos;
         }
+        public static void SerializarListaConjuntoDeProductos()
+        {
+
+        }
     }
 }

@@ -39,9 +39,9 @@ namespace Sistema_Tienda.Empleado
         }
 
 
-        public virtual void RealizarTarea()
+        public virtual string RealizarTarea()
         {
-            Console.WriteLine($"tarea realizada por : {nombre}");
+            return $"tarea realizada por : {nombre}";
         }
 
         public abstract string MostrarInfoDetallada();

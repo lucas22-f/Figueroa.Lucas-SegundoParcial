@@ -67,30 +67,11 @@ namespace App
             this.listaEmpleadosEnvios = TransportistasHandler.DeserializarEmpleadosEnvios("../../../Data/empleadosTransportes.json", this.lstBoxVisor);
             this.btnOrdenar.Visible = false;
             this.btnOrdenarDesc.Visible = false;
+            this.btnProductos.Visible = false;
 
             AppHandler.usuariosLogRegistro("../../../Data/usuarios.log", this.usuario);
 
-            switch (this.usuario.perfil)
-            {
-                case "vendedor":
-                    this.btnTransportistas.Enabled = false;
-                    this.btnVendedores.Enabled = false;
-                    this.btnVendedores.BackColor = Color.Gray;
-                    this.btnTransportistas.BackColor = Color.Gray;
-                    break;
 
-                case "supervisor":
-                    this.btnTransportistas.Enabled = false;
-                    this.btnTransportistas.BackColor = Color.Gray;
-                    break;
-
-
-
-
-                default: break;
-
-
-            }
         }
 
         private void PantallaPrincipal_FormClosed(object sender, FormClosedEventArgs e)
@@ -102,8 +83,7 @@ namespace App
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            //this.login.TxtBoxClave = "";
-            //this.login.TxtBoxCorreo = "";
+
             DialogResult res = MessageBox.Show("Seguro ? ", "Atencion! Cerrar sistema ? ", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
             if (res == DialogResult.Yes)
             {
@@ -114,6 +94,7 @@ namespace App
         private void btnPedidos_Click(object sender, EventArgs e)
         {
             this.pantalla = "pedidos";
+            this.btnProductos.Visible = true;
             this.switchearHome();
             this.lblPanel.Visible = true;
             this.lblPanel.Text = "Creacion de Pedido Actual";
@@ -206,6 +187,7 @@ namespace App
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.imgHome.Visible = true;
+            this.btnProductos.Visible = false;
             this.imgPanel.Visible = false;
             this.lblControl.Visible = false;
             this.btnCrear.Visible = false;
@@ -358,7 +340,7 @@ namespace App
             saveFileDialog1.FilterIndex = 1;
             saveFileDialog1.DefaultExt = "txt";
             saveFileDialog1.FileName = "Reporte General";
-           
+
 
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -381,8 +363,8 @@ namespace App
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.RestoreDirectory = false;
             MessageBox.Show("Cargar el archivo usuarios_log.json desde la carpeta 'Login/Data' de mi aplicacion. ");
-            
-            
+
+
             openFileDialog.Filter = "Archivos JSON|usuarios_log.json|Todos los archivos|*.*";
             openFileDialog.Title = "Seleccionar el archivo usuarios_log.json";
 
@@ -402,15 +384,23 @@ namespace App
                     {
                         MessageBox.Show("Por favor, seleccione un archivo JSON llamado 'usuarios_log.json'.", "Error");
                     }
-                   
 
-                }catch(Exception ex)
+
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
             }
 
 
+        }
+
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            BindingList<Producto> listaBindingConjuntosP = new BindingList<Producto>(this.listaDeConjuntosProductos);
+           EditorProductos frmEditorProductos = new EditorProductos(listaBindingConjuntosP);
+           frmEditorProductos.ShowDialog();
         }
     }
 

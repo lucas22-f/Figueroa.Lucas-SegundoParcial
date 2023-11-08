@@ -20,9 +20,9 @@ namespace Sistema_Tienda.Empleado
 
         }
 
-        public override void RealizarTarea()
+        public override string RealizarTarea()
         {
-            base.RealizarTarea();
+            return base.RealizarTarea();
         }
 
         public override string ToString()

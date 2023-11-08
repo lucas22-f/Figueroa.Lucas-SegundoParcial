@@ -91,9 +91,9 @@ namespace Sistema_Tienda.Empleado
             return res;
         }
 
-        public override void RealizarTarea()
+        public override string RealizarTarea()
         {
-            base.RealizarTarea();
+            return base.RealizarTarea();
         }
 
         public override string ToString()
