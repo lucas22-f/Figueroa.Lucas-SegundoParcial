@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistema_Tienda.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 namespace Sistema_Tienda
 {
     //Clase Cliente la cual me da la info de 1 cliente
-    public class Cliente
+    public class Cliente : IConectarCrud<Cliente>
     {
         public string nombre { get; set; }
         public int dni {  get; set; }
@@ -115,7 +116,24 @@ namespace Sistema_Tienda
             return string.Compare(b.nombre, a.nombre);
         }
 
+        public void crear(Cliente objeto)
+        {
+            throw new NotImplementedException();
+        }
 
+        public Cliente leer(int id)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void actualizar(Cliente objeto)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void eliminar(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

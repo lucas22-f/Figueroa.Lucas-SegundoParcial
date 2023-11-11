@@ -62,20 +62,20 @@ namespace App
                 MessageBox.Show("Por favor cargue los archivos json: clientes.json || empleadosVentas.json || empleadosTransportes.json;", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
-            if (this.usuario.perfil == "administrador")
-            {
-                AdminHandler.SerializarAdmin("../../../Data/admin.json", AdminHandler.CargaAdmin(this.usuario));
-                this.linkLabelAdmin.Visible = true;
-
-            }
             this.listaCliente = ClientesHandler.DeserializarClientes("../../../Data/clientes.json", this.lstBoxVisor);
             this.listaEmpleadosVentas = VendedoresHandler.DeserializarEmpleadosVentas("../../../Data/empleadosVentas.json", this.lstBoxVisor);
             this.listaEmpleadosEnvios = TransportistasHandler.DeserializarEmpleadosEnvios("../../../Data/empleadosTransportes.json", this.lstBoxVisor);
             this.btnOrdenar.Visible = false;
             this.btnOrdenarDesc.Visible = false;
             this.btnProductos.Visible = false;
-
             AppHandler.usuariosLogRegistro("../../../Data/usuarios.log", this.usuario);
+
+            if (this.usuario.perfil == "administrador")
+            {
+                AdminHandler.SerializarAdmin("../../../Data/admin.json", AdminHandler.CargaAdmin(this.usuario,this.listaEmpleadosEnvios,this.listaEmpleadosVentas));
+                this.linkLabelAdmin.Visible = true;
+
+            }
 
 
         }

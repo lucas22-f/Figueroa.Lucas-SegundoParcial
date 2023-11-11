@@ -13,7 +13,7 @@ namespace App
 {
     public static class AdminHandler
     {
-        public static Empleado_Admin CargaAdmin(Usuario user)
+        public static Empleado_Admin CargaAdmin(Usuario user,List<Empleado_Envios> listaEmpleadoEnvios,List<Empleado_Ventas> listaEmpleadoVentas)
         {
             string nombreCompleto = user.nombre +" " + user.apellido;
 
@@ -23,7 +23,7 @@ namespace App
 
             Experiencia exp = Experiencia.Experto;
 
-            int empleadosACargo = 23;
+            int empleadosACargo = listaEmpleadoEnvios.Count + listaEmpleadoVentas.Count;
             Empleado_Admin admin = new Empleado_Admin(nombreCompleto, sueldo, dni, exp, empleadosACargo);
             return admin;
 

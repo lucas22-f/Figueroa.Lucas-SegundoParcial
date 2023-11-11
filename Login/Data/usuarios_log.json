@@ -25,5 +25,32 @@
     "clave": "12345678",
     "perfil": "administrador",
     "LoggedAt": "2023-11-08T02:31:54.9433667-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-08T09:08:56.5468429-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-08T09:15:08.5785902-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-08T09:50:14.2924498-03:00"
   }
 ]

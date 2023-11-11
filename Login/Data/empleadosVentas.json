@@ -94,5 +94,21 @@
     "Sueldo": 1231415,
     "Dni": 123233,
     "Exp": 2
+  },
+  {
+    "ClienteAtendido": {
+      "nombre": "Pepe Rodriguez",
+      "dni": 56789012,
+      "telefono": "1234-5678"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "Pepe",
+      "Cantidad": 123,
+      "Descripcion": "431"
+    },
+    "Nombre": "xd",
+    "Sueldo": 12312,
+    "Dni": 124134,
+    "Exp": 0
   }
 ]
