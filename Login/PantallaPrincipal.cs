@@ -1,5 +1,6 @@
 ﻿using Login;
 using Sistema_Tienda;
+using Sistema_Tienda.Database;
 using Sistema_Tienda.Empleado;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace App
         private Login.Login login;
         private string pantalla;
         private bool pedidoOperador;
+        private AccesoDatos accesoDatos;
 
         private List<Cliente> listaCliente;
         private List<Empleado_Ventas> listaEmpleadosVentas;
@@ -32,6 +34,7 @@ namespace App
         {
             InitializeComponent();
             SistemaTienda cargaSistema = new SistemaTienda();
+            accesoDatos = new AccesoDatos(); 
             this.usuario = usuario;
             this.login = login;
             this.pantalla = "";
@@ -53,6 +56,8 @@ namespace App
 
         private void PantallaPrincipal_Load(object sender, EventArgs e)
         {
+            
+           
             this.lblNombre.Text = this.usuario.nombre;
             this.lblCorreo.Text = this.usuario.correo;
             this.lblPerfil.Text = this.usuario.perfil;
@@ -62,7 +67,7 @@ namespace App
                 MessageBox.Show("Por favor cargue los archivos json: clientes.json || empleadosVentas.json || empleadosTransportes.json;", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.Close();
             }
-            this.listaCliente = ClientesHandler.DeserializarClientes("../../../Data/clientes.json", this.lstBoxVisor);
+            //this.listaCliente = ClientesHandler.DeserializarClientes("../../../Data/clientes.json", this.lstBoxVisor);
             this.listaEmpleadosVentas = VendedoresHandler.DeserializarEmpleadosVentas("../../../Data/empleadosVentas.json", this.lstBoxVisor);
             this.listaEmpleadosEnvios = TransportistasHandler.DeserializarEmpleadosEnvios("../../../Data/empleadosTransportes.json", this.lstBoxVisor);
             this.btnOrdenar.Visible = false;

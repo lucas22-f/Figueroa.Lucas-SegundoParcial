@@ -1,4 +1,5 @@
 ﻿using App;
+using Sistema_Tienda.Database;
 
 namespace Sistema_Tienda.Empleado
 {
@@ -7,7 +8,7 @@ namespace Sistema_Tienda.Empleado
 
         // esta es mi lista de clases abstractas -> dentro tengo Empleados_Envios y Empleados_Ventas
 
-
+        private AccesoDatos accesoDatos;
         private List<Cliente> clientes;
         private List<Empleado_Ventas> empleadosVentas; 
         private List<Empleado_Envios> empleadosEnvios; 
@@ -17,7 +18,8 @@ namespace Sistema_Tienda.Empleado
 
         public SistemaTienda()
         {
-            this.clientes = new List<Cliente>();
+            this.accesoDatos = new AccesoDatos();
+            this.clientes = new Cliente().traerTodo(accesoDatos);
             this.empleadosVentas = new List<Empleado_Ventas>();
             this.empleadosEnvios = new List<Empleado_Envios>();
             this.empleadosAdmin = new List<Empleado_Admin>();

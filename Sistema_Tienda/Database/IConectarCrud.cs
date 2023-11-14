@@ -10,16 +10,17 @@ namespace Sistema_Tienda.Database
     {
 
         // Crear un nuevo objeto
-        void crear(T objeto);
+        List<T> traerTodo(AccesoDatos ac);
+        void crear(T objeto, AccesoDatos ac);
 
         // Leer un objeto por su identificador
-        T leer(int id);
+        T leer(int id, AccesoDatos ac);
 
         // Actualizar un objeto existente
-        void actualizar(T objeto);
+        void actualizar(T objeto, AccesoDatos ac);
 
         // Eliminar un objeto por su identificador
-        void eliminar(int id);
+        void eliminar(int id, AccesoDatos ac);
 
 
     }
