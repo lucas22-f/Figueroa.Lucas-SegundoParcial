@@ -217,7 +217,7 @@ namespace App
             switch (this.pantalla)
             {
                 case "clientes":
-                    ClientesHandler.CrudCrearCliente(this.lstBoxVisor, this.listaCliente);
+                    ClientesHandler.CrudCrearCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
                     break;
                 case "vendedores":
                     VendedoresHandler.CrudAgregarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos);
@@ -234,7 +234,7 @@ namespace App
             switch (this.pantalla)
             {
                 case "clientes":
-                    ClientesHandler.CrudEditarCliente(this.lstBoxVisor, this.listaCliente);
+                    ClientesHandler.CrudEditarCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
                     break;
                 case "vendedores":
                     VendedoresHandler.CrudEditarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos);
@@ -252,7 +252,7 @@ namespace App
             switch (this.pantalla)
             {
                 case "clientes":
-                    ClientesHandler.CrudEliminarCliente(this.lstBoxVisor, this.listaCliente);
+                    ClientesHandler.CrudEliminarCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
                     break;
                 case "vendedores":
                     VendedoresHandler.CrudEliminarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente);

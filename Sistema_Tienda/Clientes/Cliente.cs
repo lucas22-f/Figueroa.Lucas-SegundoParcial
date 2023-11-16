@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using Sistema_Tienda.Database;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,7 @@ namespace Sistema_Tienda
     //Clase Cliente la cual me da la info de 1 cliente
     public class Cliente : IConectarCrud<Cliente>
     {
+        public int idCliente { get; set; }
         public string nombre { get; set; }
         public int dni {  get; set; }
         public string telefono { get; set; }
@@ -35,6 +37,10 @@ namespace Sistema_Tienda
           
 
         }
+        public Cliente(string nombre, int dni, string telefono,int idCliente):this(nombre,dni, telefono)
+        {
+            this.idCliente = idCliente;
+        }
         // Modificamos los operadores que van a agregar items .....
         public static bool operator +(List<Cliente> listaClientes , Cliente cliente)
         {
@@ -56,21 +62,16 @@ namespace Sistema_Tienda
         }
         public static bool operator -(List<Cliente> listaClientes, Cliente cliente)
         {
-            bool res = false;
             foreach (Cliente elem in listaClientes)
             {
-                if (elem != cliente)
+                if (elem == cliente)
                 {
-                    res = true;
+                    listaClientes.Remove(cliente);
+                    return true;
                 }
             }
+            return false;
 
-            if (res)
-            {
-                listaClientes.Remove(cliente);
-            }
-            return res;
-            
         }
 
         public static bool operator == (Cliente c1, Cliente c2)
@@ -117,24 +118,50 @@ namespace Sistema_Tienda
             return string.Compare(b.nombre, a.nombre);
         }
 
-        public void crear(Cliente objeto)
-        {
-            throw new NotImplementedException();
-        }
-
+        
         public Cliente leer(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void actualizar(Cliente objeto)
+        public bool actualizar(Cliente cli, AccesoDatos ac , int id)
         {
-            throw new NotImplementedException();
-        }
+            
+                bool result = false;
+                try
+                {
+                    ac.ConexionCommand = new SqlCommand();
+                    ac.ConexionCommand.Connection = ac.Conexion;
+                   
+                    ac.ConexionCommand.Parameters.AddWithValue("@id",id);
+                    ac.ConexionCommand.Parameters.AddWithValue("@nombre",cli.nombre);
+                    ac.ConexionCommand.Parameters.AddWithValue("@dni", cli.dni);
+                    ac.ConexionCommand.Parameters.AddWithValue("@telefono", cli.telefono);
+                    ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
+                    ac.ConexionCommand.CommandText = $"UPDATE clientes SET nombre=@nombre, dni=@dni, telefono=@telefono WHERE id=@id";
 
-        public void eliminar(int id)
-        {
-            throw new NotImplementedException();
+                    ac.Conexion.Open();
+
+                    int filasAfectadas = ac.ConexionCommand.ExecuteNonQuery();
+                    if (filasAfectadas == 1)
+                    {
+                        result = true;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+                finally
+                {
+                    if (ac.Conexion.State == System.Data.ConnectionState.Open)
+                    {
+                        ac.Conexion.Close();
+                    }
+                }
+
+                return result;
+            
         }
 
         public List<Cliente> traerTodo(AccesoDatos ac)
@@ -146,19 +173,19 @@ namespace Sistema_Tienda
                 ac.ConexionCommand = new SqlCommand();
                 ac.ConexionCommand.Connection = ac.Conexion;
                 ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
-                ac.ConexionCommand.CommandText = "SELECT nombre,dni,telefono FROM clientes";
+                ac.ConexionCommand.CommandText = "SELECT id,nombre,dni,telefono FROM clientes";
 
                 ac.Conexion.Open();
                 ac.ConexionDataReader = ac.ConexionCommand.ExecuteReader();
 
                 while (ac.ConexionDataReader.Read())
                 {
+                    int id = (int)ac.ConexionDataReader["id"];
+                    string nombre = ac.ConexionDataReader[1].ToString();
+                    int dni = ac.ConexionDataReader.GetInt32(2);
+                    string telefono = ac.ConexionDataReader[3].ToString();
 
-                    string nombre = ac.ConexionDataReader[0].ToString();
-                    int dni = ac.ConexionDataReader.GetInt32(1);
-                    string telefono = ac.ConexionDataReader[2].ToString();
-
-                    Cliente cliente = new Cliente(nombre, dni, telefono);
+                    Cliente cliente = new Cliente(nombre, dni, telefono,id);
                     lista.Add(cliente);
                 }
                 ac.ConexionDataReader.Close();
@@ -180,9 +207,40 @@ namespace Sistema_Tienda
             return lista;
         }
 
-        public void crear(Cliente objeto, AccesoDatos ac)
+        public Cliente crear(Cliente cliente, AccesoDatos ac)
         {
-            throw new NotImplementedException();
+            Cliente cli = null;
+            try
+            {
+                ac.ConexionCommand = new SqlCommand();
+                ac.ConexionCommand.Connection = ac.Conexion;
+                ac.ConexionCommand.Parameters.AddWithValue("@nombre", cliente.nombre);
+                ac.ConexionCommand.Parameters.AddWithValue("@dni", cliente.dni);
+                ac.ConexionCommand.Parameters.AddWithValue("@telefono", cliente.telefono);
+                ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
+                ac.ConexionCommand.CommandText = $"INSERT INTO clientes(nombre,dni,telefono) OUTPUT INSERTED.id VALUES(@nombre,@dni,@telefono)";
+                ac.Conexion.Open();
+
+                /*En el contexto de una operación de inserción (INSERT), la cláusula OUTPUT INSERTED.id 
+                  nos ayuda a recuperar el valor de la columna id después de insertar una nueva fila en la tabla*/
+
+
+                int id = Convert.ToInt32(ac.ConexionCommand.ExecuteScalar());
+
+                // Ahora, construir el objeto Cliente con el ID
+                cli = new Cliente(cliente.nombre,cliente.dni,cliente.telefono,id);
+               
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+            finally
+            {
+                ac.Conexion.Close();
+            }
+
+            return cli;
         }
 
         public Cliente leer(int id, AccesoDatos ac)
@@ -190,14 +248,38 @@ namespace Sistema_Tienda
             throw new NotImplementedException();
         }
 
-        public void actualizar(Cliente objeto, AccesoDatos ac)
+        public bool eliminar(int id, AccesoDatos ac)
         {
-            throw new NotImplementedException();
-        }
+            bool result = false;
+            try
+            {
+                ac.ConexionCommand = new SqlCommand();
+                ac.ConexionCommand.Connection = ac.Conexion;
+                ac.ConexionCommand.Parameters.AddWithValue("@id", id);
+                ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
+                ac.ConexionCommand.CommandText = $"DELETE FROM clientes WHERE id=@id";
 
-        public void eliminar(int id, AccesoDatos ac)
-        {
-            throw new NotImplementedException();
+                ac.Conexion.Open();
+
+                int filasAfectadas = ac.ConexionCommand.ExecuteNonQuery();
+                if (filasAfectadas == 1)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (ac.Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    ac.Conexion.Close();
+                }
+            }
+
+            return result;
         }
     }
 }

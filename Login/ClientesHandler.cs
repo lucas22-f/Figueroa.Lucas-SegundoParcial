@@ -1,7 +1,9 @@
 ﻿using Sistema_Tienda;
+using Sistema_Tienda.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -100,7 +102,7 @@ namespace App
             }
         }
 
-        public static void CrudCrearCliente(ListBox lstBoxVisor , List<Cliente> listaCliente)
+        public static void CrudCrearCliente(ListBox lstBoxVisor , List<Cliente> listaCliente, AccesoDatos ac)
         {
             FrmAgregarCliente frmCliente = new FrmAgregarCliente();
             frmCliente.ShowDialog();
@@ -110,10 +112,15 @@ namespace App
                 try
                 {
                     Cliente cli = frmCliente.cliente;
+                    
                     bool ok = listaCliente + cli;
                     if (ok)
                     {
+                        Cliente cliBd = cli.crear(cli, ac);
+                        _ = listaCliente - cli;
+                        _ = listaCliente + cliBd;
                         MessageBox.Show("Operacion concretada.");
+                        
                     }
                 }
                 catch(Exception e)
@@ -125,24 +132,27 @@ namespace App
                 ClientesHandler.CargarVisorClientes(listaCliente, lstBoxVisor);
             }
         }
-        public static void CrudEditarCliente(ListBox lstBoxVisor, List<Cliente> listaCliente)
+        public static void CrudEditarCliente(ListBox lstBoxVisor, List<Cliente> listaCliente,AccesoDatos ac)
         {
             int indexListCli = lstBoxVisor.SelectedIndex;
             if (indexListCli != -1)
             {
 
-                FrmAgregarCliente frm = new FrmAgregarCliente(listaCliente[indexListCli]);
+                int idCliente = listaCliente[indexListCli].idCliente;
+                FrmAgregarCliente frm = new FrmAgregarCliente(listaCliente[indexListCli],idCliente);
                 frm.ShowDialog();
                 if (frm.res == DialogResult.OK)
                 {
+                    frm.cliente.actualizar(frm.cliente,ac, idCliente);
                     listaCliente[indexListCli] = frm.cliente;
+                    listaCliente[indexListCli].idCliente = idCliente;
                     ClientesHandler.SerializarClientes("../../../Data/clientes.json", lstBoxVisor, listaCliente);
                     //this.SerializarClientes("../../../Data/clientes.json");
                     ClientesHandler.CargarVisorClientes(listaCliente, lstBoxVisor);
                 }
             }
         }
-        public static void CrudEliminarCliente(ListBox lstBoxVisor, List<Cliente> listaCliente)
+        public static void CrudEliminarCliente(ListBox lstBoxVisor, List<Cliente> listaCliente,AccesoDatos ac)
         {
             int indexList = lstBoxVisor.SelectedIndex;
             if (indexList != -1)
@@ -157,6 +167,7 @@ namespace App
                     bool ok = listaCliente - cli;
                     if (ok)
                     {
+                        cli.eliminar(cli.idCliente,ac);
                         MessageBox.Show("Operacion concretada.");
                     }
                     ClientesHandler.SerializarClientes("../../../Data/clientes.json", lstBoxVisor, listaCliente);

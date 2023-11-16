@@ -9,18 +9,20 @@ namespace Sistema_Tienda.Database
     public interface IConectarCrud<T>
     {
 
-        // Crear un nuevo objeto
+        // Listar Todos 
         List<T> traerTodo(AccesoDatos ac);
-        void crear(T objeto, AccesoDatos ac);
 
-        // Leer un objeto por su identificador
+        // Listar 1
         T leer(int id, AccesoDatos ac);
 
+        //Crear 
+        T crear(T objeto, AccesoDatos ac);
+
         // Actualizar un objeto existente
-        void actualizar(T objeto, AccesoDatos ac);
+        bool actualizar(T objeto, AccesoDatos ac, int id);
 
         // Eliminar un objeto por su identificador
-        void eliminar(int id, AccesoDatos ac);
+        bool eliminar(int id, AccesoDatos ac);
 
 
     }
