@@ -244,7 +244,7 @@ namespace App
                     ClientesHandler.CrudEliminarCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
                     break;
                 case "vendedores":
-                    VendedoresHandler.CrudEliminarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente);
+                    VendedoresHandler.CrudEliminarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente,this.accesoDatos);
                     break;
                 case "transportes":
                     TransportistasHandler.CrudEliminarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente);

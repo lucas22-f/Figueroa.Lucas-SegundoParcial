@@ -159,7 +159,7 @@ namespace App
                 }
             }
         }
-        public static void CrudEliminarVendedores(ListBox lstBoxVisor, List<Empleado_Ventas> listaEmpleadosVentas, List<Cliente> listaCliente)
+        public static void CrudEliminarVendedores(ListBox lstBoxVisor, List<Empleado_Ventas> listaEmpleadosVentas, List<Cliente> listaCliente,AccesoDatos ac)
         {
             int indexListVen = lstBoxVisor.SelectedIndex;
             if (indexListVen != -1)
@@ -172,6 +172,7 @@ namespace App
                     bool ok = listaEmpleadosVentas - env;
                     if (ok)
                     {
+                        env.eliminar(env.idVendedor, ac);
                         MessageBox.Show("Operacion concretada.");
                     }
                     VendedoresHandler.SerializarEmpleadosVentas("../../../Data/empleadosVentas.json", lstBoxVisor, listaEmpleadosVentas);

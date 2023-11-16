@@ -113,20 +113,27 @@ namespace Sistema_Tienda.Empleado
 
         public static bool operator -(List<Empleado_Ventas> listaEmpleadosVentas, Empleado_Ventas empl)
         {
-            bool res = false;
+           
             foreach (Empleado_Ventas elem in listaEmpleadosVentas)
             {
-                if (elem != empl)
+                if (elem == empl)
                 {
-                    res = true;
+                    listaEmpleadosVentas.Remove(empl);
+                    return true;
                 }
             }
 
-            if (res)
-            {
-                listaEmpleadosVentas.Remove(empl);
-            }
-            return res;
+            
+            return false;
+            //foreach (Cliente elem in listaClientes)
+            //{
+            //    if (elem == cliente)
+            //    {
+            //        listaClientes.Remove(cliente);
+            //        return true;
+            //    }
+            //}
+            //return false;
         }
     
 
@@ -274,7 +281,36 @@ namespace Sistema_Tienda.Empleado
 
         public bool eliminar(int id, AccesoDatos ac)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            try
+            {
+                ac.ConexionCommand = new SqlCommand();
+                ac.ConexionCommand.Connection = ac.Conexion;
+                ac.ConexionCommand.Parameters.AddWithValue("@id", id);
+                ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
+                ac.ConexionCommand.CommandText = $"DELETE FROM vendedores WHERE id=@id";
+
+                ac.Conexion.Open();
+
+                int filasAfectadas = ac.ConexionCommand.ExecuteNonQuery();
+                if (filasAfectadas == 1)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (ac.Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    ac.Conexion.Close();
+                }
+            }
+
+            return result;
         }
 
         public List<Empleado_Ventas> traerTodo(AccesoDatos ac)
