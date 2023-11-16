@@ -140,17 +140,20 @@ namespace App
             }
         }
 
-        public static void CrudEditarVendedores(ListBox lstBoxVisor, List<Empleado_Ventas> listaEmpleadosVentas, List<Cliente> listaCliente, List<Producto> conjuntoProductos)
+        public static void CrudEditarVendedores(ListBox lstBoxVisor, List<Empleado_Ventas> listaEmpleadosVentas, List<Cliente> listaCliente, List<Producto> conjuntoProductos,AccesoDatos ac)
         {
             int indexListVentas = lstBoxVisor.SelectedIndex;
             if (indexListVentas != -1)
             {
+                int idVendedor = listaEmpleadosVentas[indexListVentas].idVendedor;
                 Experiencia[] valoresExperiencia = (Experiencia[])Enum.GetValues(typeof(Experiencia));
                 FrmEmpleadoDeVentas frm = new FrmEmpleadoDeVentas(listaEmpleadosVentas[indexListVentas], listaCliente, valoresExperiencia, conjuntoProductos);
                 frm.ShowDialog();
                 if (frm.res == DialogResult.OK)
                 {
+                    frm.empl.actualizar(frm.empl,ac,idVendedor);
                     listaEmpleadosVentas[indexListVentas] = frm.empl;
+                    listaEmpleadosVentas[indexListVentas].idVendedor = idVendedor;
                     VendedoresHandler.SerializarEmpleadosVentas("../../../Data/empleadosVentas.json", lstBoxVisor, listaEmpleadosVentas);
                     VendedoresHandler.CargarVisorVendedores(lstBoxVisor, listaEmpleadosVentas);
                 }

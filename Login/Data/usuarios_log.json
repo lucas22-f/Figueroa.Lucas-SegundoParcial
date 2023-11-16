@@ -556,5 +556,14 @@
     "clave": "a",
     "perfil": "administrador",
     "LoggedAt": "2023-11-16T11:15:21.2555929-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-16T11:38:41.1505266-03:00"
   }
 ]

@@ -226,7 +226,7 @@ namespace App
                     ClientesHandler.CrudEditarCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
                     break;
                 case "vendedores":
-                    VendedoresHandler.CrudEditarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos);
+                    VendedoresHandler.CrudEditarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos,this.accesoDatos);
                     break;
                 case "transportes":
                     TransportistasHandler.CrudEditarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos);

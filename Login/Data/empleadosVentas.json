@@ -30,15 +30,15 @@
       "Cantidad": 20,
       "Descripcion": "variedad de deportivos"
     },
-    "Nombre": "nuevaPrueba1",
+    "Nombre": "vendedorPrueba1",
     "Sueldo": 55000,
     "Dni": 11111113,
-    "Exp": 0
+    "Exp": 1
   },
   {
     "idVendedor": 3,
     "ClienteAtendido": {
-      "idCliente": 4,
+      "idCliente": 0,
       "nombre": "prueba4",
       "dni": 4,
       "telefono": "4"

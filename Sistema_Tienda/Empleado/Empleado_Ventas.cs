@@ -224,9 +224,52 @@ namespace Sistema_Tienda.Empleado
             return empl;
         }
 
-        public bool actualizar(Empleado_Ventas objeto, AccesoDatos ac, int id)
+        public bool actualizar(Empleado_Ventas empleado, AccesoDatos ac, int id)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            try
+            {
+                ac.ConexionCommand = new SqlCommand();
+                ac.ConexionCommand.Connection = ac.Conexion;
+
+                ac.ConexionCommand.Parameters.AddWithValue("@id", id);
+                ac.ConexionCommand.Parameters.AddWithValue("@nombre", empleado.nombre);
+                ac.ConexionCommand.Parameters.AddWithValue("@sueldo", empleado.sueldo);
+                ac.ConexionCommand.Parameters.AddWithValue("@dni", empleado.dni);
+                ac.ConexionCommand.Parameters.AddWithValue("@exp", (int)empleado.exp);
+                ac.ConexionCommand.Parameters.AddWithValue("@cliente_nombre", empleado.clienteAtendido.nombre);
+                ac.ConexionCommand.Parameters.AddWithValue("@cliente_dni", empleado.clienteAtendido.dni);
+                ac.ConexionCommand.Parameters.AddWithValue("@cliente_telefono", empleado.clienteAtendido.telefono);
+                ac.ConexionCommand.Parameters.AddWithValue("@producto_nombre", empleado.conjuntoProducto.NombreProducto);
+                ac.ConexionCommand.Parameters.AddWithValue("@producto_cantidad", empleado.conjuntoProducto.Cantidad);
+                ac.ConexionCommand.Parameters.AddWithValue("@producto_descripcion", empleado.conjuntoProducto.Descripcion);
+                ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
+                ac.ConexionCommand.CommandText = $"UPDATE vendedores SET nombre=@nombre, sueldo=@sueldo, dni=@dni, exp=@exp, " +
+                    $"cliente_nombre=@cliente_nombre, cliente_dni=@cliente_dni, cliente_telefono=@cliente_telefono ," +
+                    $"producto_nombre=@producto_nombre, producto_cantidad=@producto_cantidad ,producto_descripcion=@producto_descripcion" +
+                    $" WHERE id=@id";
+
+                ac.Conexion.Open();
+
+                int filasAfectadas = ac.ConexionCommand.ExecuteNonQuery();
+                if (filasAfectadas == 1)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (ac.Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    ac.Conexion.Close();
+                }
+            }
+
+            return result;
         }
 
         public bool eliminar(int id, AccesoDatos ac)
