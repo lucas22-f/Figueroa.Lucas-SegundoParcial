@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using Sistema_Tienda.Database;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,11 +9,12 @@ using System.Threading.Tasks;
 
 namespace Sistema_Tienda.Empleado
 {
-    public class Empleado_Ventas : Empleado
+    public class Empleado_Ventas : Empleado, IConectarCrud<Empleado_Ventas>
     {
         //clase derivada de Empleado que posee las funciones del empleado de ventas.       
 
         // 1 empleado ventas realiza 1 pedido -> donde tiene los productos y la info del cliente. 
+        public int idVendedor { get; set; }
         protected Cliente clienteAtendido;
         private static int ventasRealizadas;
         private Producto conjuntoProducto;
@@ -69,8 +72,12 @@ namespace Sistema_Tienda.Empleado
             this.clienteAtendido = cliente;
             this.conjuntoProducto = conjuntoProducto;
             
+            
         }
-
+        public Empleado_Ventas(Cliente cliente, string nombre, double sueldo, int dni, Producto conjuntoProducto, Experiencia exp, int id):this(cliente,nombre,sueldo,dni,conjuntoProducto,exp)
+        {
+            this.idVendedor = id;
+        }
 
         public override bool Equals(object? obj)
         {
@@ -165,6 +172,125 @@ namespace Sistema_Tienda.Empleado
             sb.Append($"conjuntoProducto:    \n    {this.conjuntoProducto.ToString()}    ");
 
             return sb.ToString();
+        }
+
+        public Empleado_Ventas leer(int id, AccesoDatos ac)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Empleado_Ventas crear(Empleado_Ventas empleado, AccesoDatos ac)
+        {
+            Empleado_Ventas empl = null;
+            try
+            {
+                ac.ConexionCommand = new SqlCommand();
+                ac.ConexionCommand.Connection = ac.Conexion;
+                ac.ConexionCommand.Parameters.AddWithValue("@nombre", empleado.nombre);
+                ac.ConexionCommand.Parameters.AddWithValue("@sueldo", empleado.sueldo);
+                ac.ConexionCommand.Parameters.AddWithValue("@dni", empleado.dni);
+                ac.ConexionCommand.Parameters.AddWithValue("@exp", (int)empleado.exp);
+                ac.ConexionCommand.Parameters.AddWithValue("@cliente_nombre", empleado.clienteAtendido.nombre);
+                ac.ConexionCommand.Parameters.AddWithValue("@cliente_dni", empleado.clienteAtendido.dni);
+                ac.ConexionCommand.Parameters.AddWithValue("@cliente_telefono", empleado.clienteAtendido.telefono);
+                ac.ConexionCommand.Parameters.AddWithValue("@producto_nombre", empleado.conjuntoProducto.NombreProducto);
+                ac.ConexionCommand.Parameters.AddWithValue("@producto_cantidad", empleado.conjuntoProducto.Cantidad);
+                ac.ConexionCommand.Parameters.AddWithValue("@producto_descripcion", empleado.conjuntoProducto.Descripcion);
+                ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
+                ac.ConexionCommand.CommandText = $"INSERT INTO vendedores(nombre,sueldo,dni,exp,cliente_nombre,cliente_dni,cliente_telefono," +
+                    $"producto_nombre,producto_cantidad,producto_descripcion) OUTPUT INSERTED.id VALUES(@nombre,@sueldo,@dni,@exp,@cliente_nombre,@cliente_dni," +
+                    $"@cliente_telefono,@producto_nombre,@producto_cantidad,@producto_descripcion)";
+                ac.Conexion.Open();
+
+                /*En el contexto de una operación de inserción (INSERT), la cláusula OUTPUT INSERTED.id 
+                  nos ayuda a recuperar el valor de la columna id después de insertar una nueva fila en la tabla*/
+
+
+                int id = Convert.ToInt32(ac.ConexionCommand.ExecuteScalar());
+
+                // Ahora, construir el objeto Cliente con el ID
+                empl = new Empleado_Ventas(empleado.clienteAtendido,empleado.nombre,empleado.sueldo,empleado.dni,empleado.conjuntoProducto,empleado.Exp,id);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.ToString());
+            }
+            finally
+            {
+                ac.Conexion.Close();
+            }
+
+            return empl;
+        }
+
+        public bool actualizar(Empleado_Ventas objeto, AccesoDatos ac, int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool eliminar(int id, AccesoDatos ac)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Empleado_Ventas> traerTodo(AccesoDatos ac)
+        {
+            List<Empleado_Ventas> lista = new List<Empleado_Ventas>();
+
+            try
+            {
+                ac.ConexionCommand = new SqlCommand();
+                ac.ConexionCommand.Connection = ac.Conexion;
+                ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
+                ac.ConexionCommand.CommandText = "SELECT id, nombre, sueldo, dni, exp, cliente_nombre, cliente_dni, cliente_telefono, " +
+                    "producto_nombre, producto_cantidad, producto_descripcion FROM vendedores";
+
+                ac.Conexion.Open();
+                ac.ConexionDataReader = ac.ConexionCommand.ExecuteReader();
+
+                while (ac.ConexionDataReader.Read())
+                {
+                    int id = ac.ConexionDataReader.GetInt32(0);
+                    string nombre = ac.ConexionDataReader["nombre"].ToString();
+                    double sueldo = (double)ac.ConexionDataReader.GetDecimal(2);
+                    int dni = ac.ConexionDataReader.GetInt32(3);
+                    int exp = ac.ConexionDataReader.GetInt32(4);
+
+                    // Crear instancia de Cliente
+                    Cliente cliente = new Cliente
+                    {
+                        nombre = ac.ConexionDataReader["cliente_nombre"].ToString(),
+                        dni = ac.ConexionDataReader.GetInt32(6),
+                        telefono = ac.ConexionDataReader["cliente_telefono"].ToString()
+                    };
+
+                    // Crear instancia de Producto
+                    Producto producto = new Producto(
+                         ac.ConexionDataReader["producto_nombre"].ToString(),
+                         ac.ConexionDataReader.GetInt32(9),
+                         ac.ConexionDataReader["producto_descripcion"].ToString()
+                    );
+                    Experiencia[] valores = (Experiencia[])Enum.GetValues(typeof(Experiencia));
+                    // Crear instancia de Empleado_Ventas
+                    Empleado_Ventas empleado = new Empleado_Ventas(cliente, nombre, sueldo, dni, producto, valores[exp], id);
+
+                    lista.Add(empleado);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+            finally
+            {
+                if (ac.Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    ac.Conexion.Close();
+                }
+            }
+
+            return lista;
         }
     }
 

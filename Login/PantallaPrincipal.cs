@@ -68,7 +68,7 @@ namespace App
                 this.Close();
             }
             //this.listaCliente = ClientesHandler.DeserializarClientes("../../../Data/clientes.json", this.lstBoxVisor);
-            this.listaEmpleadosVentas = VendedoresHandler.DeserializarEmpleadosVentas("../../../Data/empleadosVentas.json", this.lstBoxVisor);
+            //this.listaEmpleadosVentas = VendedoresHandler.DeserializarEmpleadosVentas("../../../Data/empleadosVentas.json", this.lstBoxVisor);
             this.listaEmpleadosEnvios = TransportistasHandler.DeserializarEmpleadosEnvios("../../../Data/empleadosTransportes.json", this.lstBoxVisor);
             this.btnOrdenar.Visible = false;
             this.btnOrdenarDesc.Visible = false;
@@ -127,8 +127,7 @@ namespace App
 
         private void btnVendedores_Click(object sender, EventArgs e)
         {
-            if (this.pedidoOperador)
-            {
+            
                 this.pantalla = "vendedores";
                 this.switchearHome();
                 this.lblPanel.Visible = true;
@@ -138,11 +137,7 @@ namespace App
                 this.btnOrdenarDesc.Visible = true;
                 VendedoresHandler.CargarVisorVendedores(this.lstBoxVisor, this.listaEmpleadosVentas);
 
-            }
-            else
-            {
-                MessageBox.Show("Por favor primero crear Pedido para operar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+            
 
 
         }
@@ -162,8 +157,7 @@ namespace App
 
         private void btnTransportes_Click(object sender, EventArgs e)
         {
-            if (this.pedidoOperador)
-            {
+            
                 this.pantalla = "transportes";
                 this.switchearHome();
                 this.lblPanel.Visible = true;
@@ -174,11 +168,6 @@ namespace App
                 this.btnOrdenarDesc.Visible = true;
                 TransportistasHandler.CargarVisorTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios);
 
-            }
-            else
-            {
-                MessageBox.Show("Por favor primero crear Pedido para operar", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
 
         }
 
@@ -220,7 +209,7 @@ namespace App
                     ClientesHandler.CrudCrearCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
                     break;
                 case "vendedores":
-                    VendedoresHandler.CrudAgregarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos);
+                    VendedoresHandler.CrudAgregarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos,this.accesoDatos);
                     break;
                 case "transportes":
                     TransportistasHandler.CrudAgregarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos);

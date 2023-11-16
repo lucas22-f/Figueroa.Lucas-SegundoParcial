@@ -1,6 +1,8 @@
 [
   {
+    "idVendedor": 1,
     "ClienteAtendido": {
+      "idCliente": 0,
       "nombre": "Juan P\u00E9rez",
       "dni": 12345678,
       "telefono": "1234-5678"
@@ -16,99 +18,39 @@
     "Exp": 0
   },
   {
+    "idVendedor": 2,
     "ClienteAtendido": {
-      "nombre": "Sergio Ram\u00EDrez",
-      "dni": 89012345,
-      "telefono": "1234-5678"
+      "idCliente": 1,
+      "nombre": "prueba1",
+      "dni": 1,
+      "telefono": "1"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "conjuntoProductos deportivos",
+      "Cantidad": 20,
+      "Descripcion": "variedad de deportivos"
+    },
+    "Nombre": "nuevaPrueba1",
+    "Sueldo": 55000,
+    "Dni": 11111113,
+    "Exp": 0
+  },
+  {
+    "idVendedor": 3,
+    "ClienteAtendido": {
+      "idCliente": 4,
+      "nombre": "prueba4",
+      "dni": 4,
+      "telefono": "4"
     },
     "ConjuntoProducto": {
       "NombreProducto": "conjuntoProductos formales",
       "Cantidad": 23,
       "Descripcion": "Variedad formales"
     },
-    "Nombre": "Fabian",
-    "Sueldo": 12343,
-    "Dni": 12312,
+    "Nombre": "nuevaPrueba2",
+    "Sueldo": 60000,
+    "Dni": 33332,
     "Exp": 2
-  },
-  {
-    "ClienteAtendido": {
-      "nombre": "Carlos Mart\u00EDn",
-      "dni": 34567890,
-      "telefono": "1234-5678"
-    },
-    "ConjuntoProducto": {
-      "NombreProducto": "conjuntoProductos deportivos",
-      "Cantidad": 20,
-      "Descripcion": "variedad de deportivos"
-    },
-    "Nombre": "Vendedor",
-    "Sueldo": 14123,
-    "Dni": 1342,
-    "Exp": 2
-  },
-  {
-    "ClienteAtendido": {
-      "nombre": "Juan P\u00E9rez",
-      "dni": 12345678,
-      "telefono": "1234-5678"
-    },
-    "ConjuntoProducto": {
-      "NombreProducto": "conjuntoProductos deportivos",
-      "Cantidad": 20,
-      "Descripcion": "variedad de deportivos"
-    },
-    "Nombre": "Basda",
-    "Sueldo": 41321,
-    "Dni": 123,
-    "Exp": 0
-  },
-  {
-    "ClienteAtendido": {
-      "nombre": "Mar\u00EDa L\u00F3pez",
-      "dni": 23456789,
-      "telefono": "1234-5678"
-    },
-    "ConjuntoProducto": {
-      "NombreProducto": "conjuntoProductos deportivos",
-      "Cantidad": 20,
-      "Descripcion": "variedad de deportivos"
-    },
-    "Nombre": "PEPEPONPIN",
-    "Sueldo": 1254134,
-    "Dni": 123123,
-    "Exp": 0
-  },
-  {
-    "ClienteAtendido": {
-      "nombre": "Mar\u00EDa L\u00F3pez",
-      "dni": 23456789,
-      "telefono": "1234-5678"
-    },
-    "ConjuntoProducto": {
-      "NombreProducto": "conjuntoProductos deportivos",
-      "Cantidad": 20,
-      "Descripcion": "variedad de deportivos"
-    },
-    "Nombre": "pepepon",
-    "Sueldo": 1231415,
-    "Dni": 123233,
-    "Exp": 2
-  },
-  {
-    "ClienteAtendido": {
-      "nombre": "Pepe Rodriguez",
-      "dni": 56789012,
-      "telefono": "1234-5678"
-    },
-    "ConjuntoProducto": {
-      "NombreProducto": "Pepe",
-      "Cantidad": 123,
-      "Descripcion": "431"
-    },
-    "Nombre": "xd",
-    "Sueldo": 12312,
-    "Dni": 124134,
-    "Exp": 0
   }
 ]

@@ -1,4 +1,5 @@
 ﻿using Sistema_Tienda;
+using Sistema_Tienda.Database;
 using Sistema_Tienda.Empleado;
 using System;
 using System.Collections.Generic;
@@ -109,7 +110,7 @@ namespace App
             }
         }
         //cambiamos logica de agregado a la lista de empleados.
-        public static void CrudAgregarVendedores(ListBox lstBoxVisor, List<Empleado_Ventas> listaEmpleadosVentas,List<Cliente> listaCliente,List<Producto> conjuntoProductos)
+        public static void CrudAgregarVendedores(ListBox lstBoxVisor, List<Empleado_Ventas> listaEmpleadosVentas,List<Cliente> listaCliente,List<Producto> conjuntoProductos,AccesoDatos ac)
         {
             Experiencia[] valoresExperiencia = (Experiencia[])Enum.GetValues(typeof(Experiencia));
             FrmEmpleadoDeVentas frmEmplVent = new FrmEmpleadoDeVentas(listaCliente, valoresExperiencia,conjuntoProductos);
@@ -123,8 +124,12 @@ namespace App
                     bool ok = listaEmpleadosVentas + empl;
                     if (ok)
                     {
+                        Empleado_Ventas emplBD = empl.crear(empl, ac);
+                        _ = listaEmpleadosVentas - empl;
+                        _ = listaEmpleadosVentas + emplBD;
                         MessageBox.Show("Operacion concretada.");
                     }
+
                 }
                 catch (Exception e)
                 {

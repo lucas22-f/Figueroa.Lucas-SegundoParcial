@@ -16,5 +16,11 @@
     "nombre": "pruebaCambio",
     "dni": 31,
     "telefono": "31"
+  },
+  {
+    "idCliente": 4,
+    "nombre": "prueba4",
+    "dni": 4,
+    "telefono": "4"
   }
 ]
