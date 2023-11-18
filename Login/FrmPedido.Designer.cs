@@ -111,7 +111,7 @@
             Controls.Add(cmBoxVendedor);
             Controls.Add(label1);
             Controls.Add(cmBoxProducto);
-            FormBorderStyle = FormBorderStyle.None;
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Name = "FrmPedido";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmPedido";

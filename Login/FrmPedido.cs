@@ -15,6 +15,7 @@ namespace App
     public partial class FrmPedido : Form
     {
         public Pedido p;
+        public DialogResult result;
         public FrmPedido()
         {
             InitializeComponent();
@@ -48,7 +49,7 @@ namespace App
 
             Pedido p = new Pedido(emplSeleccionado, clienteSeleccionado, pSeleccionado);
             this.p = p;
-
+            this.result = DialogResult.OK;
             MessageBox.Show("Pedido creado");
             this.Close();
 

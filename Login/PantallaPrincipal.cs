@@ -116,11 +116,16 @@ namespace App
 
             FrmPedido frmPedido = new FrmPedido(this.listaDeConjuntosProductos, this.listaEmpleadosVentas, this.listaCliente);
             frmPedido.ShowDialog();
-            Pedido pe = frmPedido.p;
-            this.listaPedidos.Add(pe);
-            this.lstBoxVisor.Items.Clear();
-            this.lstBoxVisor.Items.Add(frmPedido.p.ToString());
-            this.pedidoOperador = true;
+            if (frmPedido.result == DialogResult.OK)
+            {
+                Pedido pe = frmPedido.p;
+                this.listaPedidos.Add(pe);
+                this.lstBoxVisor.Items.Clear();
+                this.lstBoxVisor.Items.Add(frmPedido.p.ToString());
+                this.pedidoOperador = true;
+
+            }
+            
 
 
         }
@@ -413,7 +418,7 @@ namespace App
             if(this.lblPerfil.Text == "administrador")
             {
                 BindingList<Producto> listaBindingConjuntosP = new BindingList<Producto>(this.listaDeConjuntosProductos);
-                EditorProductos frmEditorProductos = new EditorProductos(listaBindingConjuntosP);
+                EditorProductos frmEditorProductos = new EditorProductos(listaBindingConjuntosP,this.accesoDatos);
                 frmEditorProductos.ShowDialog();
 
             }

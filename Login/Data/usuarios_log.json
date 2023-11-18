@@ -709,5 +709,41 @@
     "clave": "123abc45",
     "perfil": "vendedor",
     "LoggedAt": "2023-11-18T02:05:23.0449876-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T12:52:58.3151266-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T12:58:37.6797273-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T13:00:07.0473385-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T20:17:55.8647029-03:00"
   }
 ]

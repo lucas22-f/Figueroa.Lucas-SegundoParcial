@@ -16,6 +16,23 @@ namespace Sistema_Tienda.Empleado
         private Pedido p;
        
         private DateTime fechaPedidoPreparado;
+        
+        public Empleado_Envios()
+        {
+           
+        }
+
+        public Empleado_Envios(string nombre, double sueldo, int dni , Pedido p,Experiencia exp) : base(nombre, sueldo, dni,exp) 
+        {
+            this.p = p;
+          
+        }
+        public Empleado_Envios(string nombre, double sueldo, int dni, Pedido p, Experiencia exp,int idTransportista):this(nombre,sueldo,dni,p,exp)
+        {
+           this.idTransportista = idTransportista;
+        }
+
+
         public Pedido Pedido
         {
             get { return p; }
@@ -24,7 +41,7 @@ namespace Sistema_Tienda.Empleado
         public DateTime FechaPedidoPreparado
         {
             get { return DateTime.Now; }
-            set { this.fechaPedidoPreparado = value;}
+            set { this.fechaPedidoPreparado = value; }
         }
         public new string Nombre
         {
@@ -46,20 +63,6 @@ namespace Sistema_Tienda.Empleado
         {
             get { return base.exp; }
             set { base.exp = value; }
-        }
-        public Empleado_Envios()
-        {
-           
-        }
-
-        public Empleado_Envios(string nombre, double sueldo, int dni , Pedido p,Experiencia exp) : base(nombre, sueldo, dni,exp) 
-        {
-            this.p = p;
-          
-        }
-        public Empleado_Envios(string nombre, double sueldo, int dni, Pedido p, Experiencia exp,int idTransportista):this(nombre,sueldo,dni,p,exp)
-        {
-           this.idTransportista = idTransportista;
         }
 
         public static bool operator +(List<Empleado_Envios> listaEmpleadosEnvios, Empleado_Envios empl)

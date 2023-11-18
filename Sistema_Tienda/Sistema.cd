@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Sistema_Tienda.Properties.Resources" Collapsed="true">
+    <Position X="23.75" Y="5.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAABEAAAAQAAAAAAAAAAAAAAAIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sistema_Tienda.Cliente" BaseTypeListCollapsed="true">
+    <Position X="15.5" Y="15" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAFBAAAAAACEwAEAAAAAAAAhAIAEAAAACAAAAiI=</HashCode>
+      <FileName>Clientes\Cliente.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sistema_Tienda.Pedido" Collapsed="true">
+    <Position X="21" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAEAAAAAAAAAAEgACAAAAACAAAAAiAAAAgAAAAIiA=</HashCode>
+      <FileName>Pedidos\Pedido.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sistema_Tienda.Producto" BaseTypeListCollapsed="true">
+    <Position X="14" Y="4.25" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAACEAAAAgAAAEgAEAAAABAAAhAAACAAAACgAAAiA=</HashCode>
+      <FileName>Productos\Producto.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sistema_Tienda.Database.AccesoDatos">
+    <Position X="4" Y="5.75" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AACgIQgAACAAAAAAAAAAAAAAAAAAAIAgAAAAAAAAAAE=</HashCode>
+      <FileName>Database\AccesoDatos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sistema_Tienda.Empleado.Empleado">
+    <Position X="8.5" Y="5" Width="4.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAABAAIAAACEgAEAAAAAAAAAAIAAAAAAAAAAAmA=</HashCode>
+      <FileName>Empleado\Empleado.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sistema_Tienda.Empleado.Empleado_Admin">
+    <Position X="15.25" Y="10.5" Width="6" />
+    <TypeIdentifier>
+      <HashCode>AAECAAAIAAIAAAAEgAEAgAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>Empleado\Empleado_Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sistema_Tienda.Empleado.Empleado_Envios">
+    <Position X="0.5" Y="10.5" Width="6.5" />
+    <TypeIdentifier>
+      <HashCode>AAECAAFAAAIAAAEEwAEAgBAAgAAhAIAAAEAASAAAAAA=</HashCode>
+      <FileName>Empleado\Empleado_Envios.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sistema_Tienda.Empleado.Empleado_Ventas">
+    <Position X="7.5" Y="10.5" Width="7.5" />
+    <TypeIdentifier>
+      <HashCode>EgECEAFAIAIAAAAEwAEAgAAAAAFhAAABQAAASAAAAAA=</HashCode>
+      <FileName>Empleado\Empleado_Ventas.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Sistema_Tienda.Empleado.SistemaTienda">
+    <Position X="19.5" Y="4.5" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAABAAAAAQAEIAQABAAEIIAAACCBAAAAAQAA=</HashCode>
+      <FileName>SistemaTienda.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.ProductosHandler">
+    <Position X="23.75" Y="7" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Productos\ProductosHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Sistema_Tienda.Database.IConectarCrud&lt;T&gt;">
+    <Position X="0.5" Y="7.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAAEAAAAAAAAAAAhAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Database\IConectarCrud.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="Experiencia">
+    <Position X="21.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAIAAAAAAAAAAAAAAABAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Empleado\Experiencia.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

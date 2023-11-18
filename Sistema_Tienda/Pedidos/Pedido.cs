@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sistema_Tienda.Database;
 using Sistema_Tienda.Empleado;
 
 namespace Sistema_Tienda
@@ -85,10 +86,6 @@ namespace Sistema_Tienda
 
             return res;
         }
-
-
-
-
 
     }
 }

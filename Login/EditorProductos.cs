@@ -1,4 +1,5 @@
 ﻿using Sistema_Tienda;
+using Sistema_Tienda.Database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,12 +15,13 @@ namespace App
     public partial class EditorProductos : Form
     {
         private BindingList<Producto> listaProductos;  // Utiliza BindingList en lugar de List
-
-        public EditorProductos(BindingList<Producto> listaProductos)
+        private AccesoDatos ac;
+        public EditorProductos(BindingList<Producto> listaProductos,AccesoDatos ac)
         {
             InitializeComponent();
             this.listaProductos = listaProductos;
             this.dataGridProductos.DataSource   = new BindingList<Producto>(listaProductos);
+            this.ac = ac;
             dataGridProductos.Columns[0].Width = 310;
             dataGridProductos.Columns[2].Width = 310;
             dataGridProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -36,7 +38,11 @@ namespace App
                 {
                     string nombreProducto = txtNombre.Text;
                     string descripcion = txtDescripcion.Text;
-                    nuevoProducto = new Producto(nombreProducto, result, descripcion);
+
+                    DataGridViewCell celdaSeleccionada = dataGridProductos.SelectedCells[0];
+
+                    int id = celdaSeleccionada.RowIndex;
+                    nuevoProducto = new Producto().crear(new Producto(nombreProducto, result, descripcion),this.ac);
                     // Agregar el nuevo producto a la lista
                     listaProductos.Add(nuevoProducto);
 
@@ -104,6 +110,8 @@ namespace App
                         productoSeleccionado.NombreProducto = nombreProducto;
                         productoSeleccionado.Cantidad = result;
                         productoSeleccionado.Descripcion = descripcion;
+
+                        productoSeleccionado.actualizar(productoSeleccionado, this.ac, productoSeleccionado.IdProducto);
                     }
                     else
                     {
@@ -128,7 +136,9 @@ namespace App
                 if (resultado == DialogResult.Yes)
                 {
                     DataGridViewRow filaSeleccionada = dataGridProductos.SelectedRows[0];
+                    Producto productoSeleccionado = filaSeleccionada.DataBoundItem as Producto;
                     dataGridProductos.Rows.Remove(filaSeleccionada);
+                    productoSeleccionado.eliminar(productoSeleccionado.IdProducto, this.ac);
                 }
             }
         }

@@ -23,7 +23,7 @@ namespace Sistema_Tienda.Empleado
             this.empleadosVentas = new Empleado_Ventas().traerTodo(accesoDatos);
             this.empleadosEnvios = new Empleado_Envios().traerTodo(accesoDatos);
             this.empleadosAdmin = new List<Empleado_Admin>();
-            this.productos = ProductosHandler.GenerarListaConjuntoDeProductos();
+            this.productos = new Producto().traerTodo(accesoDatos);
             this.pedidos = new List<Pedido>();
         }
 
