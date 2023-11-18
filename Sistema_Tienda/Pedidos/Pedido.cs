@@ -48,6 +48,10 @@ namespace Sistema_Tienda
           
             
         }
+        public Pedido(Empleado_Ventas vendedor, Cliente c, Producto productos,bool ventaFinalizada) : this(vendedor, c, productos)
+        {
+            this.ventaFinalizada = ventaFinalizada;
+        }
 
         public override string ToString()
         {

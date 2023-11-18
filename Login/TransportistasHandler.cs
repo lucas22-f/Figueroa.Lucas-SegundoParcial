@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Sistema_Tienda.Database;
 
 namespace App
 {
@@ -114,7 +115,7 @@ namespace App
             }
         }
 
-        public static void CrudAgregarTransportistas(ListBox lstBoxVisor, List<Empleado_Envios> listaEmpleadosEnvios, List<Cliente> listaCliente,List<Pedido> pedidos)
+        public static void CrudAgregarTransportistas(ListBox lstBoxVisor, List<Empleado_Envios> listaEmpleadosEnvios, List<Cliente> listaCliente,List<Pedido> pedidos,AccesoDatos ac)
         {
             Experiencia[] valoresExperiencia = (Experiencia[])Enum.GetValues(typeof(Experiencia));
             FrmEmpleadoDeEnvios frmEmplVent = new FrmEmpleadoDeEnvios(listaCliente, valoresExperiencia,pedidos);
@@ -128,7 +129,14 @@ namespace App
                     bool ok = listaEmpleadosEnvios + empl;
                     if (ok)
                     {
+                        Empleado_Envios emplBD = empl.crear(empl, ac);
+                        _ = listaEmpleadosEnvios - empl;
+                        _ = listaEmpleadosEnvios + emplBD;
                         MessageBox.Show("Operacion concretada.");
+                        ////Empleado_Ventas emplBD = empl.crear(empl, ac);
+                        ////_ = listaEmpleadosVentas - empl;
+                        ////_ = listaEmpleadosVentas + emplBD;
+                        ////MessageBox.Show("Operacion concretada.");
                     }
                 }
                 catch (Exception e)

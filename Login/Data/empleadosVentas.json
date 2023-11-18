@@ -1,1 +1,20 @@
-[]
+[
+  {
+    "idVendedor": 1,
+    "ClienteAtendido": {
+      "idCliente": 2,
+      "nombre": "prueba2",
+      "dni": 2,
+      "telefono": "2"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "conjuntoProductos formales",
+      "Cantidad": 23,
+      "Descripcion": "Variedad formales"
+    },
+    "Nombre": "NRO1",
+    "Sueldo": 11111,
+    "Dni": 22222,
+    "Exp": 0
+  }
+]

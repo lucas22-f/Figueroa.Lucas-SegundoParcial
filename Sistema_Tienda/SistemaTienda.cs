@@ -21,7 +21,7 @@ namespace Sistema_Tienda.Empleado
             this.accesoDatos = new AccesoDatos();
             this.clientes = new Cliente().traerTodo(accesoDatos);
             this.empleadosVentas = new Empleado_Ventas().traerTodo(accesoDatos);
-            this.empleadosEnvios = new List<Empleado_Envios>();
+            this.empleadosEnvios = new Empleado_Envios().traerTodo(accesoDatos);
             this.empleadosAdmin = new List<Empleado_Admin>();
             this.productos = ProductosHandler.GenerarListaConjuntoDeProductos();
             this.pedidos = new List<Pedido>();
