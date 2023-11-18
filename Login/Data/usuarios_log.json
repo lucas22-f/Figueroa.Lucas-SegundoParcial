@@ -673,5 +673,41 @@
     "clave": "a",
     "perfil": "administrador",
     "LoggedAt": "2023-11-18T01:35:04.4393248-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T01:52:20.4602547-03:00"
+  },
+  {
+    "apellido": "Gorgen",
+    "nombre": "Corey",
+    "legajo": 1,
+    "correo": "cgorgen@vendedor.com",
+    "clave": "123abc45",
+    "perfil": "vendedor",
+    "LoggedAt": "2023-11-18T02:00:20.8484682-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T02:05:01.2689287-03:00"
+  },
+  {
+    "apellido": "Gorgen",
+    "nombre": "Corey",
+    "legajo": 1,
+    "correo": "cgorgen@vendedor.com",
+    "clave": "123abc45",
+    "perfil": "vendedor",
+    "LoggedAt": "2023-11-18T02:05:23.0449876-03:00"
   }
 ]

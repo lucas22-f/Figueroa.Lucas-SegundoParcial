@@ -2,7 +2,7 @@
   {
     "idVendedor": 1,
     "ClienteAtendido": {
-      "idCliente": 2,
+      "idCliente": 0,
       "nombre": "prueba2",
       "dni": 2,
       "telefono": "2"
@@ -16,5 +16,23 @@
     "Sueldo": 11111,
     "Dni": 22222,
     "Exp": 0
+  },
+  {
+    "idVendedor": 2,
+    "ClienteAtendido": {
+      "idCliente": 2,
+      "nombre": "prueba2",
+      "dni": 2,
+      "telefono": "2"
+    },
+    "ConjuntoProducto": {
+      "NombreProducto": "asdasd",
+      "Cantidad": 123,
+      "Descripcion": "1asd"
+    },
+    "Nombre": "vendedor x2",
+    "Sueldo": 14312,
+    "Dni": 51443,
+    "Exp": 2
   }
 ]

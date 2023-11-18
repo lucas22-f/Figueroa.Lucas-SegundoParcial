@@ -209,10 +209,16 @@ namespace App
                     ClientesHandler.CrudCrearCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
                     break;
                 case "vendedores":
-                    VendedoresHandler.CrudAgregarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos,this.accesoDatos);
+                    if (this.pedidoOperador)
+                    {
+                        VendedoresHandler.CrudAgregarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos,this.accesoDatos);
+                    } else MessageBox.Show("Crear un pedido primero!","Atencion !",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     break;
                 case "transportes":
-                    TransportistasHandler.CrudAgregarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
+                    if (this.pedidoOperador)
+                    {
+                        TransportistasHandler.CrudAgregarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
+                    } else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
             }
 
@@ -226,10 +232,16 @@ namespace App
                     ClientesHandler.CrudEditarCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
                     break;
                 case "vendedores":
-                    VendedoresHandler.CrudEditarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos,this.accesoDatos);
+                    if (this.pedidoOperador)
+                    { 
+                        VendedoresHandler.CrudEditarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos,this.accesoDatos);
+                    }else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
                 case "transportes":
-                    TransportistasHandler.CrudEditarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos,this.accesoDatos);
+                    if (this.pedidoOperador)
+                    {
+                        TransportistasHandler.CrudEditarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
+                    }else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
 
             }
@@ -398,9 +410,17 @@ namespace App
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            BindingList<Producto> listaBindingConjuntosP = new BindingList<Producto>(this.listaDeConjuntosProductos);
-            EditorProductos frmEditorProductos = new EditorProductos(listaBindingConjuntosP);
-            frmEditorProductos.ShowDialog();
+            if(this.lblPerfil.Text == "administrador")
+            {
+                BindingList<Producto> listaBindingConjuntosP = new BindingList<Producto>(this.listaDeConjuntosProductos);
+                EditorProductos frmEditorProductos = new EditorProductos(listaBindingConjuntosP);
+                frmEditorProductos.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Solo el admin puede Ver y editar las listas de productos ! ","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
         }
 
         private void linkLabelAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
