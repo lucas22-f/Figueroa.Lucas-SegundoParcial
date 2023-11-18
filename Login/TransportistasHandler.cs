@@ -149,23 +149,30 @@ namespace App
             }
         }
 
-        public static void CrudEditarTransportistas(ListBox lstBoxVisor, List<Empleado_Envios> listaEmpleadosEnvios, List<Cliente> listaCliente, List<Pedido> pedidos)
+        public static void CrudEditarTransportistas(ListBox lstBoxVisor, List<Empleado_Envios> listaEmpleadosEnvios, List<Cliente> listaCliente, List<Pedido> pedidos,AccesoDatos ac)
         {
             int indexListTransp = lstBoxVisor.SelectedIndex;
             if (indexListTransp != -1)
             {
+                int idTransportista = listaEmpleadosEnvios[indexListTransp].idTransportista;
                 Experiencia[] valoresExperiencia = (Experiencia[])Enum.GetValues(typeof(Experiencia));
                 FrmEmpleadoDeEnvios frm = new FrmEmpleadoDeEnvios(listaEmpleadosEnvios[indexListTransp], listaCliente, valoresExperiencia,pedidos);
                 frm.ShowDialog();
                 if (frm.res == DialogResult.OK)
                 {
+                    frm.empl.actualizar(frm.empl, ac, idTransportista);
                     listaEmpleadosEnvios[indexListTransp] = frm.empl;
+                    listaEmpleadosEnvios[indexListTransp].idTransportista = idTransportista;
                     TransportistasHandler.SerializarEmpleadosEnvios("../../../Data/empleadosTransportes.json", lstBoxVisor, listaEmpleadosEnvios);
                     TransportistasHandler.CargarVisorTransportistas(lstBoxVisor, listaEmpleadosEnvios);
+
+                    //frm.empl.actualizar(frm.empl, ac, idVendedor);
+                    //listaEmpleadosVentas[indexListVentas] = frm.empl;
+                    //listaEmpleadosVentas[indexListVentas].idVendedor = idVendedor;
                 }
             }
         }
-        public static void CrudEliminarTransportistas(ListBox lstBoxVisor, List<Empleado_Envios> listaEmpleadosEnvios, List<Cliente> listaCliente)
+        public static void CrudEliminarTransportistas(ListBox lstBoxVisor, List<Empleado_Envios> listaEmpleadosEnvios, List<Cliente> listaCliente,AccesoDatos ac)
         {
             int indexListTransp = lstBoxVisor.SelectedIndex;
             if (indexListTransp != -1)
@@ -176,8 +183,9 @@ namespace App
                 if (ResBoton == DialogResult.OK)
                 {
                     bool ok = listaEmpleadosEnvios - env;
-                    if (ok) 
+                    if (ok)
                     {
+                        env.eliminar(env.idTransportista, ac);
                         MessageBox.Show("Operacion concretada.");
                     }
                     

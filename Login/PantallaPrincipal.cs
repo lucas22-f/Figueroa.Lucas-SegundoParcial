@@ -229,7 +229,7 @@ namespace App
                     VendedoresHandler.CrudEditarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos,this.accesoDatos);
                     break;
                 case "transportes":
-                    TransportistasHandler.CrudEditarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos);
+                    TransportistasHandler.CrudEditarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos,this.accesoDatos);
                     break;
 
             }
@@ -247,7 +247,7 @@ namespace App
                     VendedoresHandler.CrudEliminarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente,this.accesoDatos);
                     break;
                 case "transportes":
-                    TransportistasHandler.CrudEliminarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente);
+                    TransportistasHandler.CrudEliminarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente,this.accesoDatos);
                     break;
             }
 

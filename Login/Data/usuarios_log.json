@@ -646,5 +646,32 @@
     "clave": "a",
     "perfil": "administrador",
     "LoggedAt": "2023-11-18T01:10:04.1908087-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T01:22:49.683218-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T01:30:01.6400785-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T01:35:04.4393248-03:00"
   }
 ]

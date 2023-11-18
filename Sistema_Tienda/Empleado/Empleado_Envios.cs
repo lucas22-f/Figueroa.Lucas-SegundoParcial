@@ -82,20 +82,18 @@ namespace Sistema_Tienda.Empleado
 
         public static bool operator -(List<Empleado_Envios> listaEmpleadosEnvios, Empleado_Envios empl)
         {
-            bool res = false;
+            
             foreach (Empleado_Envios elem in listaEmpleadosEnvios)
             {
-                if (elem != empl)
+                if (elem == empl)
                 {
-                    res = true;
+                    listaEmpleadosEnvios.Remove(empl);
+                    return true;
                 }
             }
 
-            if (res)
-            {
-                listaEmpleadosEnvios.Remove(empl);
-            }
-            return res;
+            return false;
+
         }
 
         public override string RealizarTarea()
@@ -300,14 +298,105 @@ namespace Sistema_Tienda.Empleado
         }
 
 
-        public bool actualizar(Empleado_Envios objeto, AccesoDatos ac, int id)
+        public bool actualizar(Empleado_Envios empleado, AccesoDatos ac, int id)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            try
+            {
+                ac.ConexionCommand = new SqlCommand();
+                ac.ConexionCommand.Connection = ac.Conexion;
+
+                ac.ConexionCommand.Parameters.AddWithValue("@id", id);
+                ac.ConexionCommand.Parameters.AddWithValue("@nombre", empleado.nombre);
+                ac.ConexionCommand.Parameters.AddWithValue("@sueldo", empleado.sueldo);
+                ac.ConexionCommand.Parameters.AddWithValue("@dni", empleado.dni);
+                ac.ConexionCommand.Parameters.AddWithValue("@exp", (int)empleado.exp);
+                ac.ConexionCommand.Parameters.AddWithValue("@cliente_nombre", empleado.Pedido.Cliente.nombre);
+                ac.ConexionCommand.Parameters.AddWithValue("@cliente_dni", empleado.Pedido.Cliente.dni);
+                ac.ConexionCommand.Parameters.AddWithValue("@cliente_telefono", empleado.Pedido.Cliente.telefono);
+                ac.ConexionCommand.Parameters.AddWithValue("@producto_nombre", empleado.Pedido.ConjuntoProducto.NombreProducto);
+                ac.ConexionCommand.Parameters.AddWithValue("@producto_cantidad", empleado.Pedido.ConjuntoProducto.Cantidad);
+                ac.ConexionCommand.Parameters.AddWithValue("@producto_descripcion", empleado.Pedido.ConjuntoProducto.Descripcion);
+                ac.ConexionCommand.Parameters.AddWithValue("@vendedor_nombre", empleado.Pedido.Vendedor.Nombre);
+                ac.ConexionCommand.Parameters.AddWithValue("@vendedor_sueldo", empleado.Pedido.Vendedor.Sueldo);
+                ac.ConexionCommand.Parameters.AddWithValue("@vendedor_dni", empleado.Pedido.Vendedor.Dni);
+                ac.ConexionCommand.Parameters.AddWithValue("@vendedor_exp", (int)empleado.Pedido.Vendedor.Exp);
+
+                ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
+                ac.ConexionCommand.CommandText = $"UPDATE Transportistas SET " +
+                    "Nombre = @nombre, " +
+                    "Sueldo = @sueldo, " +
+                    "Dni = @dni, " +
+                    "Exp = @exp, " +
+                    "Pedido_Cliente_Nombre = @cliente_nombre, " +
+                    "Pedido_Cliente_Dni = @cliente_dni, " +
+                    "Pedido_Cliente_Telefono = @cliente_telefono, " +
+                    "Pedido_ConjuntoProducto_Nombre = @producto_nombre, " +
+                    "Pedido_ConjuntoProducto_Cantidad = @producto_cantidad, " +
+                    "Pedido_ConjuntoProducto_Descripcion = @producto_descripcion, " +
+                    "Pedido_Vendedor_Nombre = @vendedor_nombre, " +
+                    "Pedido_Vendedor_Sueldo = @vendedor_sueldo, " +
+                    "Pedido_Vendedor_Dni = @vendedor_dni, " +
+                    "Pedido_Vendedor_Exp = @vendedor_exp " +
+                    "WHERE idTransportista = @id";
+
+                ac.Conexion.Open();
+
+                int filasAfectadas = ac.ConexionCommand.ExecuteNonQuery();
+                if (filasAfectadas == 1)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (ac.Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    ac.Conexion.Close();
+                }
+            }
+
+            return result;
         }
+
 
         public bool eliminar(int id, AccesoDatos ac)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            try
+            {
+                ac.ConexionCommand = new SqlCommand();
+                ac.ConexionCommand.Connection = ac.Conexion;
+                ac.ConexionCommand.Parameters.AddWithValue("@id", id);
+                ac.ConexionCommand.CommandType = System.Data.CommandType.Text;
+                ac.ConexionCommand.CommandText = $"DELETE FROM Transportistas WHERE idTransportista=@id";
+
+                ac.Conexion.Open();
+
+                int filasAfectadas = ac.ConexionCommand.ExecuteNonQuery();
+                if (filasAfectadas == 1)
+                {
+                    result = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                if (ac.Conexion.State == System.Data.ConnectionState.Open)
+                {
+                    ac.Conexion.Close();
+                }
+            }
+
+            return result;
         }
+
     }
 }

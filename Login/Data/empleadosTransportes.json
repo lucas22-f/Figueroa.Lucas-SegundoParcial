@@ -33,50 +33,10 @@
         "telefono": "123"
       }
     },
-    "FechaPedidoPreparado": "2023-11-18T01:10:53.1701255-03:00",
+    "FechaPedidoPreparado": "2023-11-18T01:30:57.8705822-03:00",
     "Nombre": "nombre1",
     "Sueldo": 1,
     "Dni": 1,
     "Exp": 1
-  },
-  {
-    "idTransportista": 2,
-    "Pedido": {
-      "ConjuntoProducto": {
-        "NombreProducto": "conjuntoProductos deportivos",
-        "Cantidad": 20,
-        "Descripcion": "variedad de deportivos"
-      },
-      "Vendedor": {
-        "idVendedor": 1,
-        "ClienteAtendido": {
-          "idCliente": 0,
-          "nombre": "prueba2",
-          "dni": 2,
-          "telefono": "2"
-        },
-        "ConjuntoProducto": {
-          "NombreProducto": "conjuntoProductos formales",
-          "Cantidad": 23,
-          "Descripcion": "Variedad formales"
-        },
-        "Nombre": "NRO1",
-        "Sueldo": 11111,
-        "Dni": 22222,
-        "Exp": 0
-      },
-      "VentaFinalizada": false,
-      "Cliente": {
-        "idCliente": 1,
-        "nombre": "prueba1",
-        "dni": 1,
-        "telefono": "1"
-      }
-    },
-    "FechaPedidoPreparado": "2023-11-18T01:10:53.1704045-03:00",
-    "Nombre": "nombre2",
-    "Sueldo": 2,
-    "Dni": 2,
-    "Exp": 0
   }
 ]
