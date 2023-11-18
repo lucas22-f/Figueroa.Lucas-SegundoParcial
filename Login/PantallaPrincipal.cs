@@ -34,7 +34,7 @@ namespace App
         {
             InitializeComponent();
             SistemaTienda cargaSistema = new SistemaTienda();
-            accesoDatos = new AccesoDatos(); 
+            accesoDatos = new AccesoDatos();
             this.usuario = usuario;
             this.login = login;
             this.pantalla = "";
@@ -56,8 +56,8 @@ namespace App
 
         private void PantallaPrincipal_Load(object sender, EventArgs e)
         {
-            
-           
+
+
             this.lblNombre.Text = this.usuario.nombre;
             this.lblCorreo.Text = this.usuario.correo;
             this.lblPerfil.Text = this.usuario.perfil;
@@ -72,14 +72,25 @@ namespace App
             //this.listaEmpleadosEnvios = TransportistasHandler.DeserializarEmpleadosEnvios("../../../Data/empleadosTransportes.json", this.lstBoxVisor);
             this.btnOrdenar.Visible = false;
             this.btnOrdenarDesc.Visible = false;
-            this.btnProductos.Visible = false;
+
             AppHandler.usuariosLogRegistro("../../../Data/usuarios.log", this.usuario);
 
-            if (this.usuario.perfil == "administrador")
-            {
-                AdminHandler.SerializarAdmin("../../../Data/admin.json", AdminHandler.CargaAdmin(this.usuario,this.listaEmpleadosEnvios,this.listaEmpleadosVentas));
-                this.linkLabelAdmin.Visible = true;
 
+            this.btnCrear.Enabled = false;
+            this.btnEditar.Enabled = false;
+            this.btnEliminar.Enabled = false;
+            if (this.lblPerfil.Text == "administrador")
+            {
+                AdminHandler.SerializarAdmin("../../../Data/admin.json", AdminHandler.CargaAdmin(this.usuario, this.listaEmpleadosEnvios, this.listaEmpleadosVentas));
+                this.linkLabelAdmin.Visible = true;
+                this.btnCrear.Enabled = true;
+                this.btnEditar.Enabled = true;
+                this.btnEliminar.Enabled = true;
+            }
+            else if (this.lblPerfil.Text == "supervisor")
+            {
+                this.btnCrear.Enabled = true;
+                this.btnEditar.Enabled = true;
             }
 
 
@@ -105,7 +116,7 @@ namespace App
         private void btnPedidos_Click(object sender, EventArgs e)
         {
             this.pantalla = "pedidos";
-            this.btnProductos.Visible = true;
+
             this.switchearHome();
             this.lblPanel.Visible = true;
             this.lblPanel.Text = "Creacion de Pedido Actual";
@@ -125,24 +136,24 @@ namespace App
                 this.pedidoOperador = true;
 
             }
-            
+
 
 
         }
 
         private void btnVendedores_Click(object sender, EventArgs e)
         {
-            
-                this.pantalla = "vendedores";
-                this.switchearHome();
-                this.lblPanel.Visible = true;
-                this.lblPanel.Text = "Vendedores";
-                this.lblInfolstBox.Visible = true;
-                this.btnOrdenar.Visible = true;
-                this.btnOrdenarDesc.Visible = true;
-                VendedoresHandler.CargarVisorVendedores(this.lstBoxVisor, this.listaEmpleadosVentas);
 
-            
+            this.pantalla = "vendedores";
+            this.switchearHome();
+            this.lblPanel.Visible = true;
+            this.lblPanel.Text = "Vendedores";
+            this.lblInfolstBox.Visible = true;
+            this.btnOrdenar.Visible = true;
+            this.btnOrdenarDesc.Visible = true;
+            VendedoresHandler.CargarVisorVendedores(this.lstBoxVisor, this.listaEmpleadosVentas);
+
+
 
 
         }
@@ -162,16 +173,16 @@ namespace App
 
         private void btnTransportes_Click(object sender, EventArgs e)
         {
-            
-                this.pantalla = "transportes";
-                this.switchearHome();
-                this.lblPanel.Visible = true;
-                this.lblInfolstBox.Visible = false;
-                this.lblPanel.Text = "Transportes";
-                this.lblInfolstBox.Visible = true;
-                this.btnOrdenar.Visible = true;
-                this.btnOrdenarDesc.Visible = true;
-                TransportistasHandler.CargarVisorTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios);
+
+            this.pantalla = "transportes";
+            this.switchearHome();
+            this.lblPanel.Visible = true;
+            this.lblInfolstBox.Visible = false;
+            this.lblPanel.Text = "Transportes";
+            this.lblInfolstBox.Visible = true;
+            this.btnOrdenar.Visible = true;
+            this.btnOrdenarDesc.Visible = true;
+            TransportistasHandler.CargarVisorTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios);
 
 
         }
@@ -192,7 +203,7 @@ namespace App
         private void btnHome_Click(object sender, EventArgs e)
         {
             this.imgHome.Visible = true;
-            this.btnProductos.Visible = false;
+
             this.imgPanel.Visible = false;
             this.lblControl.Visible = false;
             this.btnCrear.Visible = false;
@@ -211,19 +222,17 @@ namespace App
             switch (this.pantalla)
             {
                 case "clientes":
-                    ClientesHandler.CrudCrearCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
+                    ClientesHandler.CrudCrearCliente(this.lstBoxVisor, this.listaCliente, this.accesoDatos);
                     break;
                 case "vendedores":
-                    if (this.pedidoOperador)
-                    {
-                        VendedoresHandler.CrudAgregarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos,this.accesoDatos);
-                    } else MessageBox.Show("Crear un pedido primero!","Atencion !",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        VendedoresHandler.CrudAgregarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos, this.accesoDatos);
                     break;
                 case "transportes":
                     if (this.pedidoOperador)
                     {
                         TransportistasHandler.CrudAgregarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
-                    } else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
             }
 
@@ -234,19 +243,18 @@ namespace App
             switch (this.pantalla)
             {
                 case "clientes":
-                    ClientesHandler.CrudEditarCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
+                    ClientesHandler.CrudEditarCliente(this.lstBoxVisor, this.listaCliente, this.accesoDatos);
                     break;
                 case "vendedores":
-                    if (this.pedidoOperador)
-                    { 
-                        VendedoresHandler.CrudEditarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos,this.accesoDatos);
-                    }else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    VendedoresHandler.CrudEditarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos, this.accesoDatos);
+                   
                     break;
                 case "transportes":
                     if (this.pedidoOperador)
                     {
                         TransportistasHandler.CrudEditarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
-                    }else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     break;
 
             }
@@ -258,13 +266,13 @@ namespace App
             switch (this.pantalla)
             {
                 case "clientes":
-                    ClientesHandler.CrudEliminarCliente(this.lstBoxVisor, this.listaCliente,this.accesoDatos);
+                    ClientesHandler.CrudEliminarCliente(this.lstBoxVisor, this.listaCliente, this.accesoDatos);
                     break;
                 case "vendedores":
-                    VendedoresHandler.CrudEliminarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente,this.accesoDatos);
+                    VendedoresHandler.CrudEliminarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.accesoDatos);
                     break;
                 case "transportes":
-                    TransportistasHandler.CrudEliminarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente,this.accesoDatos);
+                    TransportistasHandler.CrudEliminarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.accesoDatos);
                     break;
             }
 
@@ -415,17 +423,11 @@ namespace App
 
         private void btnProductos_Click(object sender, EventArgs e)
         {
-            if(this.lblPerfil.Text == "administrador")
-            {
-                BindingList<Producto> listaBindingConjuntosP = new BindingList<Producto>(this.listaDeConjuntosProductos);
-                EditorProductos frmEditorProductos = new EditorProductos(listaBindingConjuntosP,this.accesoDatos);
-                frmEditorProductos.ShowDialog();
 
-            }
-            else
-            {
-                MessageBox.Show("Solo el admin puede Ver y editar las listas de productos ! ","ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            }
+            BindingList<Producto> listaBindingConjuntosP = new BindingList<Producto>(this.listaDeConjuntosProductos);
+            EditorProductos frmEditorProductos = new EditorProductos(listaBindingConjuntosP, this.accesoDatos, this.lblPerfil.Text);
+            frmEditorProductos.ShowDialog();
+
         }
 
         private void linkLabelAdmin_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

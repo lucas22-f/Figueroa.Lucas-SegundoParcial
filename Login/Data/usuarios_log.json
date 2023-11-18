@@ -745,5 +745,95 @@
     "clave": "a",
     "perfil": "administrador",
     "LoggedAt": "2023-11-18T20:17:55.8647029-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T20:33:25.3773899-03:00"
+  },
+  {
+    "apellido": "Robinson",
+    "nombre": "Tilda",
+    "legajo": 4,
+    "correo": "trobinson@super.com",
+    "clave": "12345678",
+    "perfil": "supervisor",
+    "LoggedAt": "2023-11-18T20:33:50.2411403-03:00"
+  },
+  {
+    "apellido": "Robinson",
+    "nombre": "Tilda",
+    "legajo": 4,
+    "correo": "trobinson@super.com",
+    "clave": "12345678",
+    "perfil": "supervisor",
+    "LoggedAt": "2023-11-18T20:34:27.0881248-03:00"
+  },
+  {
+    "apellido": "Harris",
+    "nombre": "Steve",
+    "legajo": 3,
+    "correo": "sharris@maiden.com.uk",
+    "clave": "eddie666",
+    "perfil": "vendedor",
+    "LoggedAt": "2023-11-18T20:34:49.9147366-03:00"
+  },
+  {
+    "apellido": "Harris",
+    "nombre": "Steve",
+    "legajo": 3,
+    "correo": "sharris@maiden.com.uk",
+    "clave": "eddie666",
+    "perfil": "vendedor",
+    "LoggedAt": "2023-11-18T20:37:37.6234409-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T20:40:58.6173223-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T20:43:21.1275388-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T20:44:24.3047853-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T20:44:38.9094743-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T20:45:46.7293499-03:00"
   }
 ]

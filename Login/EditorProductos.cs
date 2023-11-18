@@ -16,22 +16,23 @@ namespace App
     {
         private BindingList<Producto> listaProductos;  // Utiliza BindingList en lugar de List
         private AccesoDatos ac;
-        public EditorProductos(BindingList<Producto> listaProductos,AccesoDatos ac)
+        private string perfil;
+        public EditorProductos(BindingList<Producto> listaProductos, AccesoDatos ac, string perfil)
         {
             InitializeComponent();
             this.listaProductos = listaProductos;
-            this.dataGridProductos.DataSource   = new BindingList<Producto>(listaProductos);
+            this.perfil = perfil;
+            this.dataGridProductos.DataSource = new BindingList<Producto>(listaProductos);
             this.ac = ac;
             dataGridProductos.Columns[0].Width = 310;
             dataGridProductos.Columns[2].Width = 310;
             dataGridProductos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-
             dataGridProductos.SelectionChanged += DataGridProductos_SelectionChanged;
         }
 
         private void btnAgregarListProd_Click(object sender, EventArgs e)
         {
-            Producto?  nuevoProducto;
+            Producto? nuevoProducto;
             try
             {
                 if (int.TryParse(txtCantidad.Text, out int result))
@@ -42,7 +43,7 @@ namespace App
                     DataGridViewCell celdaSeleccionada = dataGridProductos.SelectedCells[0];
 
                     int id = celdaSeleccionada.RowIndex;
-                    nuevoProducto = new Producto().crear(new Producto(nombreProducto, result, descripcion),this.ac);
+                    nuevoProducto = new Producto().crear(new Producto(nombreProducto, result, descripcion), this.ac);
                     // Agregar el nuevo producto a la lista
                     listaProductos.Add(nuevoProducto);
 
@@ -67,9 +68,9 @@ namespace App
             catch (Exception ex)
             {
 
-                MessageBox.Show($"{ex.Message}","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
 
 
         }
@@ -84,7 +85,7 @@ namespace App
                 // producto seleccionado
                 Producto productoSeleccionado = filaSeleccionada.DataBoundItem as Producto;
 
-              
+
                 txtNombreEdit.Text = productoSeleccionado.NombreProducto;
                 txtCantidadEdit.Text = productoSeleccionado.Cantidad.ToString();
                 txtDescripcionEdit.Text = productoSeleccionado.Descripcion;
@@ -97,7 +98,7 @@ namespace App
             {
                 if (dataGridProductos.SelectedRows.Count > 0)
                 {
-                   
+
                     DataGridViewRow filaSeleccionada = dataGridProductos.SelectedRows[0];
                     Producto productoSeleccionado = filaSeleccionada.DataBoundItem as Producto;
 
@@ -117,13 +118,13 @@ namespace App
                     {
                         throw new Exception("Error, datos mal ingresados");
                     }
-                   
+
                     dataGridProductos.Refresh();
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"{ex.Message}","Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -140,6 +141,23 @@ namespace App
                     dataGridProductos.Rows.Remove(filaSeleccionada);
                     productoSeleccionado.eliminar(productoSeleccionado.IdProducto, this.ac);
                 }
+            }
+        }
+
+        private void EditorProductos_Load(object sender, EventArgs e)
+        {
+            this.btnAgregarListProd.Enabled = false;
+            this.btnEditarP.Enabled = false;
+            this.btnEliminarProd.Enabled = false;
+            if (this.perfil == "administrador")
+            {
+                this.btnAgregarListProd.Enabled = true;
+                this.btnEditarP.Enabled = true;
+                this.btnEliminarProd.Enabled = true;
+            }else if(this.perfil == "supervisor")
+            {
+                this.btnAgregarListProd.Enabled = true;
+                this.btnEditarP.Enabled = true;
             }
         }
     }

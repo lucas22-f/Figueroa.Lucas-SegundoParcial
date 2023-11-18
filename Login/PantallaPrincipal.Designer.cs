@@ -242,7 +242,7 @@
             btnCrear.FlatAppearance.BorderSize = 0;
             btnCrear.FlatStyle = FlatStyle.Flat;
             btnCrear.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCrear.Location = new Point(1057, 175);
+            btnCrear.Location = new Point(1056, 166);
             btnCrear.Name = "btnCrear";
             btnCrear.Size = new Size(116, 54);
             btnCrear.TabIndex = 15;
@@ -268,7 +268,7 @@
             btnEditar.FlatAppearance.BorderSize = 0;
             btnEditar.FlatStyle = FlatStyle.Flat;
             btnEditar.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEditar.Location = new Point(1057, 272);
+            btnEditar.Location = new Point(1056, 261);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(116, 54);
             btnEditar.TabIndex = 17;
@@ -283,7 +283,7 @@
             btnEliminar.FlatAppearance.BorderSize = 0;
             btnEliminar.FlatStyle = FlatStyle.Flat;
             btnEliminar.Font = new Font("Tw Cen MT", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEliminar.Location = new Point(1057, 369);
+            btnEliminar.Location = new Point(1056, 355);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(116, 54);
             btnEliminar.TabIndex = 18;
@@ -423,9 +423,9 @@
             // 
             // btnProductos
             // 
-            btnProductos.Location = new Point(1063, 194);
+            btnProductos.Location = new Point(1056, 451);
             btnProductos.Name = "btnProductos";
-            btnProductos.Size = new Size(109, 35);
+            btnProductos.Size = new Size(117, 35);
             btnProductos.TabIndex = 29;
             btnProductos.Text = "Productos";
             btnProductos.UseVisualStyleBackColor = true;

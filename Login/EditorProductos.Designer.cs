@@ -205,6 +205,7 @@
             Controls.Add(dataGridProductos);
             Name = "EditorProductos";
             Text = "EditorProductos";
+            Load += EditorProductos_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridProductos).EndInit();
             ResumeLayout(false);
             PerformLayout();
