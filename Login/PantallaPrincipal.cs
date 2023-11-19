@@ -81,7 +81,7 @@ namespace App
             this.btnEliminar.Enabled = false;
             if (this.lblPerfil.Text == "administrador")
             {
-                AdminHandler.SerializarAdmin("../../../Data/admin.json", AdminHandler.CargaAdmin(this.usuario, this.listaEmpleadosEnvios, this.listaEmpleadosVentas));
+                AdminHandler.SerializarAdmin("../../../Data/admin.json", AdminHandler.CargaAdmin(this.usuario, this.listaEmpleadosEnvios, this.listaEmpleadosVentas,this.accesoDatos));
                 this.linkLabelAdmin.Visible = true;
                 this.btnCrear.Enabled = true;
                 this.btnEditar.Enabled = true;

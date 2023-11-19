@@ -1,6 +1,8 @@
 ﻿using Login;
 using Sistema_Tienda;
+using Sistema_Tienda.Database;
 using Sistema_Tienda.Empleado;
+using Sistema_Tienda.Exepciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,20 +15,29 @@ namespace App
 {
     public static class AdminHandler
     {
-        public static Empleado_Admin CargaAdmin(Usuario user,List<Empleado_Envios> listaEmpleadoEnvios,List<Empleado_Ventas> listaEmpleadoVentas)
+        public static Empleado_Admin CargaAdmin(Usuario user,List<Empleado_Envios> listaEmpleadoEnvios,List<Empleado_Ventas> listaEmpleadoVentas,AccesoDatos ac)
         {
             string nombreCompleto = user.nombre +" " + user.apellido;
 
             double sueldo = new Random().Next(100000);
 
-            int dni = 1023010;
+            int dni = new Random().Next(100000);
 
             Experiencia exp = Experiencia.Experto;
 
             int empleadosACargo = listaEmpleadoEnvios.Count + listaEmpleadoVentas.Count;
             Empleado_Admin admin = new Empleado_Admin(nombreCompleto, sueldo, dni, exp, empleadosACargo);
+            try
+            {
+                Empleado_Admin adminBD = admin.CrearRegistroAdminBD(ac,admin);
+                throw new AdminIngresadoAtException($"Bienvenido! USUARIO ADMIN  : {adminBD.Nombre}   fecha :{adminBD.fechaLog}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex.Message}", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+           
             return admin;
-
         }
         public static void SerializarAdmin(string ruta, Empleado_Admin admin)
         {

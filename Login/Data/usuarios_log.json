@@ -835,5 +835,95 @@
     "clave": "a",
     "perfil": "administrador",
     "LoggedAt": "2023-11-18T20:45:46.7293499-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T20:49:11.8219476-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T23:36:37.7776189-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T23:39:56.1590398-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T23:42:40.1686448-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-18T23:45:05.3865885-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-19T00:33:01.2515837-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-19T00:34:14.7357656-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-19T00:35:16.403928-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-19T00:36:27.9605469-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-19T00:36:38.2950521-03:00"
   }
 ]
