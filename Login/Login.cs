@@ -1,10 +1,13 @@
 using App;
+using Sistema_Tienda;
+using Sistema_Tienda.Exepciones;
 
 namespace Login
 {
     public partial class Login : Form
     {
         private Usuario usuario;
+        public delegate void LoginPosibleError(string mensaje);
         public string TxtBoxCorreo
         {
             get { return this.txtboxCorreo.Text; } 
@@ -56,7 +59,18 @@ namespace Login
             string correoEntrada = this.txtboxCorreo.Text;
             string claveEntrada = this.txtBoxClave.Text;
 
-            
+            ErrorLoginExepcion err = new("Error al ingresar Correo / Contraseña");
+
+
+            LoginPosibleError delegadoLoginErr = null;
+
+
+            delegadoLoginErr += err.LanzarError;
+
+
+ 
+
+
                 foreach (Usuario usuario in usuarios)
                 {
                     if (usuario.correo == correoEntrada && usuario.clave == claveEntrada)
@@ -70,12 +84,20 @@ namespace Login
 
 
                 }
-            
-          
-            if(res == null){
 
-             MessageBox.Show("correo o contraseña invalida","Error login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            try
+            {
+                if (res == null)
+                {
+                    delegadoLoginErr.Invoke(err.Message);
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Error login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
             
            
 

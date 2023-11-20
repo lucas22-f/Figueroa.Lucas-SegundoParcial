@@ -22,5 +22,11 @@
     "nombre": "prueba4",
     "dni": 4,
     "telefono": "4"
+  },
+  {
+    "idCliente": 5,
+    "nombre": "cliente nuevo",
+    "dni": 4413151,
+    "telefono": "215313"
   }
 ]

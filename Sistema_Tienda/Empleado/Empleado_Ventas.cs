@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 using Sistema_Tienda.Database;
+using Sistema_Tienda.Exepciones;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -368,7 +369,7 @@ namespace Sistema_Tienda.Empleado
                     ac.Conexion.Close();
                 }
             }
-
+            
             return lista;
         }
     }

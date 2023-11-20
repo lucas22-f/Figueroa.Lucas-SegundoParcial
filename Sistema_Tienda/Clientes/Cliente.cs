@@ -225,9 +225,10 @@ namespace Sistema_Tienda
                   nos ayuda a recuperar el valor de la columna id después de insertar una nueva fila en la tabla*/
 
 
+                // Execute Scalar : recuperar el valor de la primera columna de la primera fila del conjunto de resultados.
                 int id = Convert.ToInt32(ac.ConexionCommand.ExecuteScalar());
 
-                // Ahora, construir el objeto Cliente con el ID
+                // Ahora, construimos el objeto Cliente con el ID
                 cli = new Cliente(cliente.nombre,cliente.dni,cliente.telefono,id);
                
             }

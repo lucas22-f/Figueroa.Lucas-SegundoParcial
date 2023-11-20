@@ -2,6 +2,7 @@
 using Sistema_Tienda;
 using Sistema_Tienda.Database;
 using Sistema_Tienda.Empleado;
+using Sistema_Tienda.Eventos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -228,11 +229,34 @@ namespace App
                         VendedoresHandler.CrudAgregarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos, this.accesoDatos);
                     break;
                 case "transportes":
-                    if (this.pedidoOperador)
+
+                    AgregadoTransportista ag = new AgregadoTransportista(this.pedidoOperador);
+
+                    ag.pedidoCreado += TransportistaCreado.SiEstaCreado;
+                    ag.pedidoNoCreado += TransportistaCreado.SiNoEstaCreado;
+
+                    try
                     {
-                        TransportistasHandler.CrudAgregarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
+                        
+                        if (this.pedidoOperador)
+                        {
+                            
+                            TransportistasHandler.CrudAgregarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
+                            MessageBox.Show($"{ag.Verificar()}", "aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            throw new Exception($"{ag.Verificar()}");
+                        }
+
                     }
-                    else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    catch (Exception ex)
+                    {
+                        
+                        MessageBox.Show($"{ex.Message}","Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+
+                   
                     break;
             }
 
