@@ -970,5 +970,68 @@
     "clave": "a",
     "perfil": "administrador",
     "LoggedAt": "2023-11-20T17:09:03.3123384-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-20T17:36:41.7768596-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-20T17:39:21.8974863-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-20T17:41:29.5546553-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-20T17:42:41.1474988-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-20T17:49:27.0036111-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-20T17:54:17.7077212-03:00"
+  },
+  {
+    "apellido": "f",
+    "nombre": "a",
+    "legajo": 53,
+    "correo": "a",
+    "clave": "a",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-20T17:55:34.5672674-03:00"
   }
 ]

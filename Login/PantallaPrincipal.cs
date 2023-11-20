@@ -229,37 +229,10 @@ namespace App
                         VendedoresHandler.CrudAgregarVendedores(this.lstBoxVisor, this.listaEmpleadosVentas, this.listaCliente, this.listaDeConjuntosProductos, this.accesoDatos);
                     break;
                 case "transportes":
-
-                    AgregadoTransportista ag = new AgregadoTransportista(this.pedidoOperador);
-
-                    ag.pedidoCreado += TransportistaCreado.SiEstaCreado;
-                    ag.pedidoNoCreado += TransportistaCreado.SiNoEstaCreado;
-
-                    try
-                    {
-                        
-                        if (this.pedidoOperador)
-                        {
-                            
-                            TransportistasHandler.CrudAgregarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
-                            MessageBox.Show($"{ag.Verificar()}", "aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
-                        else
-                        {
-                            throw new Exception($"{ag.Verificar()}");
-                        }
-
-                    }
-                    catch (Exception ex)
-                    {
-                        
-                        MessageBox.Show($"{ex.Message}","Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
-
-                   
+                    this.AccesoAlCreateUpdateTransportistas("crear");
                     break;
+                   
             }
-
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
@@ -274,15 +247,56 @@ namespace App
                    
                     break;
                 case "transportes":
-                    if (this.pedidoOperador)
-                    {
-                        TransportistasHandler.CrudEditarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
-                    }
-                    else MessageBox.Show("Crear un pedido primero!", "Atencion !", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.AccesoAlCreateUpdateTransportistas("editar");
                     break;
 
             }
 
+        }
+
+        private void AccesoAlCreateUpdateTransportistas(string operacion)
+        {
+            //Comenzamos la verificacion en la creacion del transportista con eventos y delegados . 
+            AgregadoTransportista ag = new AgregadoTransportista(this.pedidoOperador);
+
+            ag.pedidoCreado += TransportistaCreado.SiEstaCreado;
+            ag.pedidoNoCreado += TransportistaCreado.SiNoEstaCreado;
+            StringBuilder sb = new StringBuilder();
+            foreach(var e in this.listaPedidos)
+            {
+                sb.Append(e.infoTransportistas());
+            }
+            string pedidos = sb.ToString();
+             try
+                {
+                    if (this.pedidoOperador)
+                    {
+                        switch (operacion)
+                        {
+                            case "crear":
+                                MessageBox.Show($"{ag.Verificar()} : ","Aviso", MessageBoxButtons.OK);
+                                MessageBox.Show($"{pedidos}", "pedidos para operar", MessageBoxButtons.OK);
+                                TransportistasHandler.CrudAgregarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
+                                break;
+                            case "editar":
+                                MessageBox.Show($"{pedidos}", "pedidos para operar", MessageBoxButtons.OK);
+                                TransportistasHandler.CrudEditarTransportistas(this.lstBoxVisor, this.listaEmpleadosEnvios, this.listaCliente, this.listaPedidos, this.accesoDatos);
+                                break;
+                            default:
+                                throw new ArgumentException("Operación no válida");
+                        }
+
+                    }
+                    else
+                    {
+                        throw new Exception($"{ag.Verificar()} POR FAVOR CARGAR UN NUEVO PEDIDO.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

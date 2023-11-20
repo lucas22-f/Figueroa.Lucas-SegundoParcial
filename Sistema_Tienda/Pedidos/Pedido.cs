@@ -67,6 +67,10 @@ namespace Sistema_Tienda
 
             return sb.ToString();   
         }
+        public string infoTransportistas()
+        {
+            return $"Cliente:{this.Cliente.nombre} dni:{this.Cliente.dni}  " +$"Productos:{this.conjuntoProducto.NombreProducto}" + '\n';
+        }
 
         public static bool operator == ( Pedido a , Pedido b)
         {

@@ -7,9 +7,13 @@ using System.Threading.Tasks;
 namespace Sistema_Tienda.Eventos
 {
     public delegate string Action(bool pedidoOperador);
+
+    //Creamos clase que maneja los eventos de los pedidos creados o no para ingresar a transportistas ! 
     public class AgregadoTransportista
     {
         private bool pedidoOperador;
+
+        //2 eventos 1 si esta creado , 1 si no esta creado el pedido .
         public event Action pedidoCreado;
         public event Action pedidoNoCreado; 
 

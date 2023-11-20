@@ -5,7 +5,8 @@
       "ConjuntoProducto": {
         "NombreProducto": "conjuntoUrbanos",
         "Cantidad": 12,
-        "Descripcion": "urbanos"
+        "Descripcion": "urbanos",
+        "IdProducto": 0
       },
       "Vendedor": {
         "idVendedor": 0,
@@ -18,7 +19,8 @@
         "ConjuntoProducto": {
           "NombreProducto": "conjuntoUrbanos",
           "Cantidad": 12,
-          "Descripcion": "urbanos"
+          "Descripcion": "urbanos",
+          "IdProducto": 0
         },
         "Nombre": "juan",
         "Sueldo": 123,
@@ -33,7 +35,7 @@
         "telefono": "123"
       }
     },
-    "FechaPedidoPreparado": "2023-11-18T01:55:06.2602781-03:00",
+    "FechaPedidoPreparado": "2023-11-20T17:39:45.1397106-03:00",
     "Nombre": "nombre1",
     "Sueldo": 1,
     "Dni": 1,
@@ -45,7 +47,92 @@
       "ConjuntoProducto": {
         "NombreProducto": "asdasd",
         "Cantidad": 123,
-        "Descripcion": "1asd"
+        "Descripcion": "1asd",
+        "IdProducto": 0
+      },
+      "Vendedor": {
+        "idVendedor": 0,
+        "ClienteAtendido": {
+          "idCliente": 0,
+          "nombre": "pruebaCambio",
+          "dni": 31,
+          "telefono": "31"
+        },
+        "ConjuntoProducto": {
+          "NombreProducto": "asdasd",
+          "Cantidad": 123,
+          "Descripcion": "1asd",
+          "IdProducto": 0
+        },
+        "Nombre": "NRO1",
+        "Sueldo": 11111,
+        "Dni": 22222,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "idCliente": 0,
+        "nombre": "pruebaCambio",
+        "dni": 31,
+        "telefono": "31"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-20T17:39:45.1399906-03:00",
+    "Nombre": "asdasd",
+    "Sueldo": 1313,
+    "Dni": 1312,
+    "Exp": 2
+  },
+  {
+    "idTransportista": 4,
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductosVintage",
+        "Cantidad": 50,
+        "Descripcion": "vintage xd",
+        "IdProducto": 0
+      },
+      "Vendedor": {
+        "idVendedor": 0,
+        "ClienteAtendido": {
+          "idCliente": 0,
+          "nombre": "prueba1",
+          "dni": 1,
+          "telefono": "1"
+        },
+        "ConjuntoProducto": {
+          "NombreProducto": "conjuntoProductosVintage",
+          "Cantidad": 50,
+          "Descripcion": "vintage xd",
+          "IdProducto": 0
+        },
+        "Nombre": "NRO1",
+        "Sueldo": 11111,
+        "Dni": 22222,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "idCliente": 0,
+        "nombre": "prueba1",
+        "dni": 1,
+        "telefono": "1"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-20T17:39:45.1400117-03:00",
+    "Nombre": "Transportista Nuevo",
+    "Sueldo": 2421,
+    "Dni": 42423,
+    "Exp": 2
+  },
+  {
+    "idTransportista": 5,
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductosVintage",
+        "Cantidad": 50,
+        "Descripcion": "vintage xd",
+        "IdProducto": 1
       },
       "Vendedor": {
         "idVendedor": 1,
@@ -58,7 +145,8 @@
         "ConjuntoProducto": {
           "NombreProducto": "conjuntoProductos formales",
           "Cantidad": 23,
-          "Descripcion": "Variedad formales"
+          "Descripcion": "Variedad formales",
+          "IdProducto": 0
         },
         "Nombre": "NRO1",
         "Sueldo": 11111,
@@ -67,16 +155,16 @@
       },
       "VentaFinalizada": false,
       "Cliente": {
-        "idCliente": 3,
-        "nombre": "pruebaCambio",
-        "dni": 31,
-        "telefono": "31"
+        "idCliente": 1,
+        "nombre": "prueba1",
+        "dni": 1,
+        "telefono": "1"
       }
     },
-    "FechaPedidoPreparado": "2023-11-18T01:55:06.2605458-03:00",
-    "Nombre": "asdasd",
-    "Sueldo": 1313,
-    "Dni": 1312,
-    "Exp": 2
+    "FechaPedidoPreparado": "2023-11-20T17:39:45.1400232-03:00",
+    "Nombre": "asdasf",
+    "Sueldo": 241453,
+    "Dni": 2431432,
+    "Exp": 0
   }
 ]
