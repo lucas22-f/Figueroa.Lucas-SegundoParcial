@@ -37,6 +37,8 @@
             button1 = new Button();
             button2 = new Button();
             pictureBox3 = new PictureBox();
+            progresBarLogin = new ProgressBar();
+            lblProgressBar = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -143,12 +145,30 @@
             pictureBox3.TabIndex = 10;
             pictureBox3.TabStop = false;
             // 
+            // progresBarLogin
+            // 
+            progresBarLogin.Location = new Point(57, 593);
+            progresBarLogin.Name = "progresBarLogin";
+            progresBarLogin.Size = new Size(324, 26);
+            progresBarLogin.TabIndex = 11;
+            // 
+            // lblProgressBar
+            // 
+            lblProgressBar.AutoSize = true;
+            lblProgressBar.Location = new Point(55, 575);
+            lblProgressBar.Name = "lblProgressBar";
+            lblProgressBar.Size = new Size(68, 15);
+            lblProgressBar.TabIndex = 12;
+            lblProgressBar.Text = "Cargando...";
+            // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CornflowerBlue;
             ClientSize = new Size(435, 631);
+            Controls.Add(lblProgressBar);
+            Controls.Add(progresBarLogin);
             Controls.Add(pictureBox3);
             Controls.Add(button2);
             Controls.Add(button1);
@@ -180,5 +200,7 @@
         private Button button1;
         private Button button2;
         private PictureBox pictureBox3;
+        private ProgressBar progresBarLogin;
+        private Label lblProgressBar;
     }
 }

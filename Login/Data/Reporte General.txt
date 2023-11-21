@@ -62,12 +62,6 @@
     "nombre": "prueba4",
     "dni": 4,
     "telefono": "4"
-  },
-  {
-    "idCliente": 5,
-    "nombre": "cliente nuevo",
-    "dni": 4413151,
-    "telefono": "215313"
   }
 ],
  =============================== TRANSPORTISTAS =============================== [
@@ -107,7 +101,7 @@
         "telefono": "123"
       }
     },
-    "FechaPedidoPreparado": "2023-11-20T11:31:03.6346565-03:00",
+    "FechaPedidoPreparado": "2023-11-20T22:00:52.8968031-03:00",
     "Nombre": "nombre1",
     "Sueldo": 1,
     "Dni": 1,
@@ -149,10 +143,94 @@
         "telefono": "31"
       }
     },
-    "FechaPedidoPreparado": "2023-11-20T11:31:03.6351202-03:00",
+    "FechaPedidoPreparado": "2023-11-20T22:00:52.8972654-03:00",
     "Nombre": "asdasd",
     "Sueldo": 1313,
     "Dni": 1312,
     "Exp": 2
+  },
+  {
+    "idTransportista": 4,
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductosVintage",
+        "Cantidad": 50,
+        "Descripcion": "vintage xd",
+        "IdProducto": 0
+      },
+      "Vendedor": {
+        "idVendedor": 0,
+        "ClienteAtendido": {
+          "idCliente": 0,
+          "nombre": "prueba1",
+          "dni": 1,
+          "telefono": "1"
+        },
+        "ConjuntoProducto": {
+          "NombreProducto": "conjuntoProductosVintage",
+          "Cantidad": 50,
+          "Descripcion": "vintage xd",
+          "IdProducto": 0
+        },
+        "Nombre": "NRO1",
+        "Sueldo": 11111,
+        "Dni": 22222,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "idCliente": 0,
+        "nombre": "prueba1",
+        "dni": 1,
+        "telefono": "1"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-20T22:00:52.8972821-03:00",
+    "Nombre": "Transportista Nuevo",
+    "Sueldo": 2421,
+    "Dni": 42423,
+    "Exp": 2
+  },
+  {
+    "idTransportista": 5,
+    "Pedido": {
+      "ConjuntoProducto": {
+        "NombreProducto": "conjuntoProductosVintage",
+        "Cantidad": 50,
+        "Descripcion": "vintage xd",
+        "IdProducto": 0
+      },
+      "Vendedor": {
+        "idVendedor": 0,
+        "ClienteAtendido": {
+          "idCliente": 0,
+          "nombre": "prueba1",
+          "dni": 1,
+          "telefono": "1"
+        },
+        "ConjuntoProducto": {
+          "NombreProducto": "conjuntoProductosVintage",
+          "Cantidad": 50,
+          "Descripcion": "vintage xd",
+          "IdProducto": 0
+        },
+        "Nombre": "NRO1",
+        "Sueldo": 11111,
+        "Dni": 22222,
+        "Exp": 0
+      },
+      "VentaFinalizada": false,
+      "Cliente": {
+        "idCliente": 0,
+        "nombre": "prueba1",
+        "dni": 1,
+        "telefono": "1"
+      }
+    },
+    "FechaPedidoPreparado": "2023-11-20T22:00:52.8972908-03:00",
+    "Nombre": "asdasf",
+    "Sueldo": 241453,
+    "Dni": 2431432,
+    "Exp": 0
   }
 ]
