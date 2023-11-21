@@ -77,7 +77,7 @@ namespace Sistema_Tienda
         public static bool operator == (Cliente c1, Cliente c2)
         {
 
-            return c1.dni == c2.dni || c1.telefono == c2.telefono;
+            return c1.dni == c2.dni;
         }
 
         public static bool operator != (Cliente c1, Cliente c2)
