@@ -17,11 +17,26 @@ namespace App
     {
         public static Empleado_Admin CargaAdmin(Usuario user,List<Empleado_Envios> listaEmpleadoEnvios,List<Empleado_Ventas> listaEmpleadoVentas,AccesoDatos ac)
         {
+
+            //Generamos los datos de el unico admin que tenemos :
+
+            /*
+             * {
+                "apellido": "Jordan",
+                "nombre": "Michael",
+                "legajo": 5,
+                "correo": "admin@admin.com",
+                "clave": "12345678",
+                "perfil": "administrador"
+              },
+             */
+
+
             string nombreCompleto = user.nombre +" " + user.apellido;
 
-            double sueldo = new Random().Next(100000);
+            double sueldo = 350000;
 
-            int dni = new Random().Next(100000);
+            int dni = 22160536;
 
             Experiencia exp = Experiencia.Experto;
 

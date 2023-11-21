@@ -1159,5 +1159,14 @@
     "clave": "a",
     "perfil": "administrador",
     "LoggedAt": "2023-11-20T22:00:28.712606-03:00"
+  },
+  {
+    "apellido": "Jordan",
+    "nombre": "Michael",
+    "legajo": 5,
+    "correo": "admin@admin.com",
+    "clave": "12345678",
+    "perfil": "administrador",
+    "LoggedAt": "2023-11-20T22:25:09.6846431-03:00"
   }
 ]
