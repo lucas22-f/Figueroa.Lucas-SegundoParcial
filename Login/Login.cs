@@ -100,27 +100,18 @@ namespace Login
             string claveEntrada = this.txtBoxClave.Text;
 
             ErrorLoginExepcion err = new("Error al ingresar Correo / Contraseña");
-
-
             LoginPosibleError delegadoLoginErr = null;
-
-
             delegadoLoginErr += err.LanzarError;
-
-
 
             foreach (Usuario usuario in usuarios)
             {
                 if (usuario.correo == correoEntrada && usuario.clave == claveEntrada)
                 {
-
                     this.usuario = usuario;
                     res = usuario;
                     rta = true;
                     break;
                 }
-
-
             }
 
             try
@@ -135,13 +126,7 @@ namespace Login
 
                 MessageBox.Show(ex.Message, "Error login", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-
-
-
             return rta;
-
-
         }
 
 
