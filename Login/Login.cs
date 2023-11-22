@@ -66,6 +66,12 @@ namespace Login
                 {
                     await SimularInicioSesion(progress);
                 });
+                
+                Task t2 = Task.Run(() => lblProgressBar.Text =  ActualizarLabelProgreso());
+
+
+                
+
                 if (progresBarLogin.Value == 100)
                 {
                     this.OcultarIndicadorCarga();
@@ -159,23 +165,22 @@ namespace Login
 
             //definimos un tope de 100 para la barra. y creamos el for que va de 0 a 100
             int pasos = 100;
-            this.lblProgressBar.Visible = true;
+            
             for (int i = 0; i < pasos; i++)
             {
                 // Ponemos el delay. 
-                await Task.Delay(10);
+                await Task.Delay(20);
 
                 //Ejecutamos el la funcion Report de la interfaz Iprogress pasandole el porcentaje : 
                 progress.Report((i + 1) * 100 / pasos);
 
-                await this.ActualizarLabelProgreso($"Cargando... {i + 1}%");
+               
             }
         }
 
-        private async Task ActualizarLabelProgreso(string mensaje)
+        private string ActualizarLabelProgreso()
         {
-            lblProgressBar.Text = mensaje;
-            await Task.Delay(5);
+            return "Cargando...";
         }
 
         private void MostrarIndicadorCarga()

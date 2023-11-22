@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="App.Properties.Resources" Collapsed="true">
+    <Position X="11.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABEAAAAQAAAAAAAAAAAAAAQIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.Properties.Settings" Collapsed="true">
+    <Position X="13.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.AdminHandler" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAACAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>AdminHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.AppHandler" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAACAAAAAAAAAICAAAAAAA=</HashCode>
+      <FileName>AppHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.ClientesHandler" Collapsed="true">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAAAACAAAAAAEAAAAAAEAAAAgAgAA=</HashCode>
+      <FileName>ClientesHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.EditorProductos" Collapsed="true">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIQgAAATARIBAAABCAAAECQCAAAIAIAIAAAAAAJAA=</HashCode>
+      <FileName>EditorProductos.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.FrmAgregarCliente" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACCAAMgABAKAAAACgCRAAAAgAAAIAAAAAAA=</HashCode>
+      <FileName>FrmAgregarCliente.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.FrmEmpleadoBase">
+    <Position X="3" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAQACgAEFAAAACAAAACACgBAAAAAAEgIAAAQCA=</HashCode>
+      <FileName>FrmEmpleadoBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.FrmEmpleadoDeEnvios">
+    <Position X="0.5" Y="6.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAIBKAAAACAAAAAAAAAAEgAAAAAAA=</HashCode>
+      <FileName>FrmEmpleadoDeEnvios.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.FrmEmpleadoDeVentas">
+    <Position X="5" Y="7.25" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAACCAABAAABKAAAACAAAAAAAAAAFgAAAAAAA=</HashCode>
+      <FileName>FrmEmpleadoDeVentas.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.FrmPedido" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAACAAABgABACAIAACAAAAAAAAAGAAAAAAAAA=</HashCode>
+      <FileName>FrmPedido.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.PantallaPrincipal" Collapsed="true">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASUMHJAAEKCAARIhARCKBAADaHAQIAwMUBEAABBA1dI=</HashCode>
+      <FileName>PantallaPrincipal.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.TransportistasHandler" Collapsed="true">
+    <Position X="15" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACCAAAECAAAAAAAACAABAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>TransportistasHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.UsuariosLogueadosForm" Collapsed="true">
+    <Position X="11.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAAACAAgAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>UsuariosLogueadosForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="App.VendedoresHandler" Collapsed="true">
+    <Position X="13.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAMAAAIAAAAAAAAAAAECAAACAEAAAAAAAAAA=</HashCode>
+      <FileName>VendedoresHandler.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Login.Login">
+    <Position X="9.25" Y="5" Width="4" />
+    <NestedTypes>
+      <Delegate Name="Login.Login.LoginPosibleError" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Login.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAQAABAAACAAIAAgAACoBAQCAQBZIAQAAGAAAEBAAAg=</HashCode>
+      <FileName>Login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Login.Program" Collapsed="true">
+    <Position X="9.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Login.Usuario" Collapsed="true">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQBBACEAAAAAAAAAAQAAACAAAIQAAAAAAA=</HashCode>
+      <FileName>Usuario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

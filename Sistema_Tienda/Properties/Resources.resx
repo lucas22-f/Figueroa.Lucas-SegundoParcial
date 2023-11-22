@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="cadena_conexion" xml:space="preserve">
-    <value>Data Source=Lucas-Main-PC\SQLEXPRESS;Initial Catalog=appSistema;Integrated Security=True;Trust Server Certificate=True</value>
+    <value>Data Source=localhost\SQLEXPRESS;Initial Catalog=appSistema;Integrated Security=True;Trust Server Certificate=True</value>
   </data>
 </root>
