@@ -269,10 +269,8 @@ await Task.Run(async () =>
 {
     await SimularInicioSesion(progress);
 });
-if (progresBarLogin.Value == 100)
-{
-    this.OcultarIndicadorCarga();
-}
+
+Task t2 = Task.Run(() => lblProgressBar.Text =  ActualizarLabelProgreso());
 
 ```
 
@@ -299,10 +297,9 @@ private async Task SimularInicioSesion(IProgress<int> progress)
     }
 }
 
-private async Task ActualizarLabelProgreso(string mensaje)
+private string ActualizarLabelProgreso()
 {
-    lblProgressBar.Text = mensaje;
-    await Task.Delay(5);
+    return "Cargando...";
 }
 ```
 ### Diagramas
